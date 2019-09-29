@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>My Online Classroom</title>
+		<meta name="theme-color" content="#3a76b1">
+		<meta name="viewport" content="width=1280,user-scalable=no">
+		<link rel="stylesheet" href="ClassRoom.css">
+	</head>
+	<body>
+		<script>
+			var CTRLS_IDLE = 0;
+
+			var STRING_TITLE = "HTML & CSS Course";
+			var STRING_GOBACK = "Go back to the board";
+			var STRING_RELOAD = "Reload class";
+			var STRING_LOADING = "Loading class...";
+
+			function loadClass(url)
+				{
+				try
+					{
+					// CLEARING THE CONTAINER FROM ANY CLASS IN PROGRESS
+					document.getElementById("container").contentDocument.location.replace("about:blank");
+
+					// HIDES THE GUI
+					document.getElementsByClassName("gui_container")[0].style.display = "none";
+
+					// SHOWING THE PLEASE WAIT ANIMATION
+					document.getElementsByClassName("gui_pleasewait")[0].style.display = "block";
+
+					// CLEARING THE TIMER VALUE
+					document.getElementsByClassName("gui_timer")[0].innerHTML = "";
+
+					setTimeout(function()
+						{
+						// DISPLAYING THE CLASS CONTAINER
+						document.getElementById("container").style.display = "block";
+						document.getElementById("container").focus();
+
+						// LOADING THE CLASS
+						document.getElementById("container").contentDocument.location.replace(url);
+
+						// HIDING THE PLEASE WAIT ANIMATION
+						document.getElementsByClassName("gui_pleasewait")[0].style.display = "none";
+						}, 1500);
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function reload()
+				{
+				try
+					{
+					document.getElementById("container").contentDocument.location.reload(true);
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function goBack()
+				{
+				try
+					{
+					// SHOWS THE GUI
+					document.getElementsByClassName("gui_container")[0].style.display = "block";
+
+					// CLEARS THE CONTAINER FROM ANY CLASS IN PROGRESS
+					document.getElementById("container").contentDocument.location.replace("about:blank");
+
+					// HIDES THE CONTAINER
+					document.getElementById("container").style.display = "none";
+
+					// HIDES THE GO BACK BUTTON
+					document.getElementsByClassName("gui_goback")[0].style.display = "none";
+
+					// HIDES THE REWIND BUTTON
+					document.getElementsByClassName("gui_rewind")[0].style.display = "none";
+
+					// HIDES THE RELOAD BUTTON
+					document.getElementsByClassName("gui_reload")[0].style.display = "none";
+
+					// HIDES THE FORDWARD BUTTON
+					document.getElementsByClassName("gui_forward")[0].style.display = "none";
+
+					// HIDES THE TIMER
+					document.getElementsByClassName("gui_timer")[0].style.display = "none";
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function audioRewind()
+				{
+				try
+					{
+					document.getElementById("container").contentWindow.audioRewind();
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function audioForward()
+				{
+				try
+					{
+					document.getElementById("container").contentWindow.audioForward();
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function goBackButtonResetIncrement()
+				{
+				try
+					{
+					CTRLS_IDLE = 0;
+					if (document.getElementById("container").style.display=="block")
+						{
+						// SHOWS THE GO BACK BUTTON
+						document.getElementsByClassName("gui_goback")[0].style.display = "block";
+
+						// SHOWS THE REWIND BUTTON
+						document.getElementsByClassName("gui_rewind")[0].style.display = "block";
+
+						// SHOWS THE RELOAD BUTTON
+						document.getElementsByClassName("gui_reload")[0].style.display = "block";
+
+						// SHOWS THE FORDWARD BUTTON
+						document.getElementsByClassName("gui_forward")[0].style.display = "block";
+
+						// SHOWS THE TIMER
+						document.getElementsByClassName("gui_timer")[0].style.display = "block";
+						}
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function goBackButtonTimerIncrement()
+				{
+				try
+					{
+					CTRLS_IDLE = CTRLS_IDLE + 1;
+					if (CTRLS_IDLE >= 3)
+						{
+						// HIDES THE GO BACK BUTTON
+						document.getElementsByClassName("gui_goback")[0].style.display = "none";
+
+						// HIDES THE REWIND BUTTON
+						document.getElementsByClassName("gui_rewind")[0].style.display = "none";
+
+						// HIDES THE RELOAD BUTTON
+						document.getElementsByClassName("gui_reload")[0].style.display = "none";
+
+						// HIDES THE FORDWARD BUTTON
+						document.getElementsByClassName("gui_forward")[0].style.display = "none";
+
+						// HIDES THE TIMER
+						document.getElementsByClassName("gui_timer")[0].style.display = "none";
+						}
+					}
+					catch(err)
+					{
+					}
+				}
+
+			window.onload = function()
+				{
+				document.getElementById("container").contentDocument.location.replace("about:blank");
+
+				// TO KEEP FOCUS IN THE CONTAINER
+				setInterval(function()
+					{
+					document.getElementById("container").focus();
+					}, 250);
+
+				// TO KEEP TRACK OF THE CLICKS WHEN PLAYING A GAME IN ORDER TO HIDE THE GOBACK BUTTON
+				setInterval(goBackButtonTimerIncrement, 1000);
+				document.addEventListener("click", goBackButtonResetIncrement, false);
+				document.addEventListener("dblclick", goBackButtonResetIncrement, false);
+				document.addEventListener("mousemove", goBackButtonResetIncrement, false);
+
+				// SETTING THE TITLES FOR EACH BUTTON
+				document.getElementsByClassName("gui_goback")[0].title = STRING_GOBACK;
+				document.getElementsByClassName("gui_reload")[0].title = STRING_RELOAD;
+				}
+		</script>
+
+		<iframe id="container" src="about:blank"></iframe>
+		<div class="gui_goback" onclick="goBack()"></div>
+		<div class="gui_rewind" onclick="audioRewind()"></div>
+		<div class="gui_reload" onclick="reload()"></div>
+		<div class="gui_forward" onclick="audioForward()"></div>
+		<div class="gui_timer"></div>
+		<div class="gui_pleasewait"><div class="gui_pleasewait_title"><script>document.write(STRING_LOADING);</script></div><div class="pleasewait"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+
+		<div class="gui_container">
+			<div class="gui_title">
+				<div class="gui_title_name">My Online Classroom</div>
+				<div class="gui_title_course"><script>document.write(STRING_TITLE);</script></div>
+				<div class="gui_title_email"><a href="mailto:info@lrusso.com">info@lrusso.com</a></div>
+			</div>
+			<div class="gui_content">
+				<div class="gui_content_center">
+					<div class="gui_board"><div class="gui_board_chalk"></div></div>
+					<div class="gui_board_content">
+						<div class="gui_board_content_title">HTML & CSS Online Course</div>
+						<div class="gui_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')">Class 1 - Introduction</div>
+						<div class="gui_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')">Class 2 - Styling Objects</div>
+						<div class="gui_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')">Class 3 - CSS Implementation</div>
+						<div class="gui_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')">Class 4 - Uploading Files</div>
+						<div class="gui_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')">Class 5 - W3C Code Validation</div>
+						<div class="gui_board_content_tip">Click in any Class Title to begin</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
