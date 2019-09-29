@@ -1,4 +1,4 @@
-# ClassRoom
+# Online Classroom
 
 Online Classroom developed in HTML5 and CSS3.
 
