@@ -13,7 +13,9 @@
 
 			var STRING_TITLE = "HTML & CSS Course";
 			var STRING_GOBACK = "Go back to the board";
-			var STRING_RELOAD = "Reload class";
+			var STRING_REWIND = "Rewind";
+			var STRING_PAUSERESUME = "Pause/Resume class";
+			var STRING_FORWARD = "Forward";
 			var STRING_LOADING = "Loading class...";
 
 			function loadClass(url)
@@ -31,6 +33,9 @@
 
 					// CLEARING THE TIMER VALUE
 					document.getElementsByClassName("gui_timer")[0].innerHTML = "";
+
+					// RESTORING THE DEFAULT CLASS OF THE PAUSE-RESUME BUTTON
+					document.getElementById("buttonPauseResume").className = "gui_pause";
 
 					setTimeout(function()
 						{
@@ -81,7 +86,7 @@
 					document.getElementsByClassName("gui_rewind")[0].style.display = "none";
 
 					// HIDES THE RELOAD BUTTON
-					document.getElementsByClassName("gui_reload")[0].style.display = "none";
+					document.getElementById("buttonPauseResume").style.display = "none";
 
 					// HIDES THE FORDWARD BUTTON
 					document.getElementsByClassName("gui_forward")[0].style.display = "none";
@@ -102,6 +107,27 @@
 					}
 					catch(err)
 					{
+					}
+				}
+
+			function audioPauseResume()
+				{
+				try
+					{
+					if (document.getElementById("buttonPauseResume").className=="gui_pause")
+						{
+						document.getElementById("container").contentWindow.audio.pause();
+						document.getElementById("buttonPauseResume").className = "gui_play";
+						}
+					else if (document.getElementById("buttonPauseResume").className=="gui_play")
+						{
+						document.getElementById("container").contentWindow.audio.play();
+						document.getElementById("buttonPauseResume").className = "gui_pause";
+						}
+					}
+					catch(err)
+					{
+					alert(err);
 					}
 				}
 
@@ -130,7 +156,7 @@
 						document.getElementsByClassName("gui_rewind")[0].style.display = "block";
 
 						// SHOWS THE RELOAD BUTTON
-						document.getElementsByClassName("gui_reload")[0].style.display = "block";
+						document.getElementById("buttonPauseResume").style.display = "block";
 
 						// SHOWS THE FORDWARD BUTTON
 						document.getElementsByClassName("gui_forward")[0].style.display = "block";
@@ -158,7 +184,7 @@
 						document.getElementsByClassName("gui_rewind")[0].style.display = "none";
 
 						// HIDES THE RELOAD BUTTON
-						document.getElementsByClassName("gui_reload")[0].style.display = "none";
+						document.getElementById("buttonPauseResume").style.display = "none";
 
 						// HIDES THE FORDWARD BUTTON
 						document.getElementsByClassName("gui_forward")[0].style.display = "none";
@@ -190,14 +216,16 @@
 
 				// SETTING THE TITLES FOR EACH BUTTON
 				document.getElementsByClassName("gui_goback")[0].title = STRING_GOBACK;
-				document.getElementsByClassName("gui_reload")[0].title = STRING_RELOAD;
+				document.getElementsByClassName("gui_rewind")[0].title = STRING_REWIND;
+				document.getElementById("buttonPauseResume").title = STRING_PAUSERESUME;
+				document.getElementsByClassName("gui_forward")[0].title = STRING_FORWARD;
 				}
 		</script>
 
 		<iframe id="container" src="about:blank"></iframe>
 		<div class="gui_goback" onclick="goBack()"></div>
 		<div class="gui_rewind" onclick="audioRewind()"></div>
-		<div class="gui_reload" onclick="reload()"></div>
+		<div class="gui_pause" onclick="audioPauseResume()" id="buttonPauseResume"></div>
 		<div class="gui_forward" onclick="audioForward()"></div>
 		<div class="gui_timer"></div>
 		<div class="gui_pleasewait"><div class="gui_pleasewait_title"><script>document.write(STRING_LOADING);</script></div><div class="pleasewait"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
