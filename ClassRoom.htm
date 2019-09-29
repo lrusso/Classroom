@@ -39,12 +39,17 @@
 
 					setTimeout(function()
 						{
+						// MAKING THE BACKGROUND WHITE IN ORDER TO PREVENT A VISUAL BUG IF A LAZY LOAD EVENT TAKES PLACE
+						document.body.style.backgroundColor = "white";
+
 						// DISPLAYING THE CLASS CONTAINER
 						document.getElementById("container").style.display = "block";
 						document.getElementById("container").focus();
 
 						// LOADING THE CLASS
 						document.getElementById("container").contentDocument.location.replace(url);
+
+
 
 						// HIDING THE PLEASE WAIT ANIMATION
 						document.getElementsByClassName("gui_pleasewait")[0].style.display = "none";
@@ -70,6 +75,9 @@
 				{
 				try
 					{
+					// RESTORING THE ORIGINAL BACKGROUND COLOR
+					document.body.style.backgroundColor = "#333333";
+
 					// SHOWS THE GUI
 					document.getElementsByClassName("gui_container")[0].style.display = "block";
 
