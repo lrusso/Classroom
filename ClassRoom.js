@@ -1,5 +1,5 @@
-var classResourcesArray = document.getElementsByClassName("classroom_resource");
-var classInvertedArray = classroom_events.reverse();
+var classroom_resources_array = document.getElementsByClassName("classroom_resource");
+var classroom_events_array = classroom_events.reverse();
 
 var classroom_audio = new Audio(classroom_audio_path);
 classroom_audio.addEventListener("timeupdate",function()
@@ -8,12 +8,12 @@ classroom_audio.addEventListener("timeupdate",function()
 
 	if (classroom_audio.currentTime<1)
 		{
-		for (var i=0;i<classResourcesArray.length;i++)
+		for (var i=0;i<classroom_resources_array.length;i++)
 			{
 			try
 				{
-				classResourcesArray[i].classList.add("classroom_resource_hidden");
-				classResourcesArray[i].classList.remove("classroom_resource_animation_visible");
+				classroom_resources_array[i].classList.add("classroom_resource_hidden");
+				classroom_resources_array[i].classList.remove("classroom_resource_animation_visible");
 				}
 				catch(err)
 				{
@@ -22,21 +22,21 @@ classroom_audio.addEventListener("timeupdate",function()
 		}
 		else
 		{
-		var latestLocation = null;
+		var classroom_location_latest = null;
 
-		for (var i=0;i<classInvertedArray.length;i++)
+		for (var i=0;i<classroom_events_array.length;i++)
 			{
-			if (classroom_audio.currentTime>classInvertedArray[i])
+			if (classroom_audio.currentTime>classroom_events_array[i])
 				{
-				if (latestLocation==null)
+				if (classroom_location_latest==null)
 					{
-					latestLocation = classInvertedArray.length - i - 1;
+					classroom_location_latest = classroom_events_array.length - i - 1;
 
 					// SHOWING THE ELEMENT AT THE LATEST LOCATION
 					try
 						{
-						classResourcesArray[latestLocation].classList.add("classroom_resource_animation_visible");
-						classResourcesArray[latestLocation].classList.remove("classroom_resource_hidden");
+						classroom_resources_array[classroom_location_latest].classList.add("classroom_resource_animation_visible");
+						classroom_resources_array[classroom_location_latest].classList.remove("classroom_resource_hidden");
 						}
 						catch(err)
 						{
@@ -45,15 +45,15 @@ classroom_audio.addEventListener("timeupdate",function()
 				}
 			}
 
-		if (latestLocation!=null)
+		if (classroom_location_latest!=null)
 			{
 			// HIDDING ALL ELEMENTS AFTER THE LATEST LOCATION
-			for (var j=latestLocation+1;j<classInvertedArray.length;j++)
+			for (var j=classroom_location_latest+1;j<classroom_events_array.length;j++)
 				{
 				try
 					{
-					classResourcesArray[j].classList.add("classroom_resource_hidden");
-					classResourcesArray[j].classList.remove("classroom_resource_animation_visible");
+					classroom_resources_array[j].classList.add("classroom_resource_hidden");
+					classroom_resources_array[j].classList.remove("classroom_resource_animation_visible");
 					}
 					catch(err)
 					{
