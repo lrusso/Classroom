@@ -22,9 +22,11 @@ var classroom_events = [1,7,17,24,28];
 var classroom_audio_path = "ClassRoom_Class01.mp3";
 ```
 
-The **classroom_events** variable is an array that sets how many seconds must pass for the next transition.
+* The **classroom_events** variable is an array that sets how many seconds must pass for the next transition.
 
-The **classroom_audio_path** variable is the path to the MP3 audio file that has the voice of the teacher giving the class.
+* The **classroom_audio_path** variable is the path to the MP3 audio file that has the voice of the teacher giving the class.
+
+* Create your Web layout for the class in any way form that you like, using as many images, labels or elements that you may need.
 
 ## Handling transitions
 
