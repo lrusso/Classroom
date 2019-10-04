@@ -18,8 +18,8 @@ https://www.youtube.com/watch?v=WNGvmvJ_Q60
 In https://github.com/lrusso/ClassRoom/blob/master/ClassRoom_Class01.htm, you will see this two variables:
 
 ```
-var timeEvents = [1,7,17,24,28];
-var classAudio = "ClassRoom_Class01.mp3";
+var classroom_events = [1,7,17,24,28];
+var classroom_audio_path = "ClassRoom_Class01.mp3";
 ```
 
 The **timeEvents** variable is an array that sets how many seconds must pass for the next transition.
