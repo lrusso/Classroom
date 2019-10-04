@@ -43,4 +43,6 @@ The **classAudio** variable is the path to MP3 audio file that has the voice of 
 </table>
 ```
 
-Every object that class the **classroom_resource** 
+Every object that has the class **classroom_resource** will be considered for a fade-in transition effect.
+
+Every object that has the class **classroom_resource_hidden** will be hidden by default.
