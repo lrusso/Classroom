@@ -26,7 +26,7 @@ var classroom_audio_path = "ClassRoom_Class01.mp3";
 
 * The **classroom_audio_path** variable is the path to the MP3 audio file that has the voice of the teacher giving the class.
 
-* Design your Web page for the classroom using as many HTML elements as you may need.
+* Design your Web page for the classroom using as many HTML elements as you need.
 
 ## Handling transitions
 
