@@ -22,9 +22,9 @@ var timeEvents = [1,7,17,24,28];
 var classAudio = "ClassRoom_Class01.mp3";
 ```
 
-The timeEvents is an array that sets how many seconds must pass for the next transition.
+The **timeEvents** variable is an array that sets how many seconds must pass for the next transition.
 
-The classAudio is the path to MP3 audio file that has the voice of the teacher of the class.
+The **classAudio** variable is the path to MP3 audio file that has the voice of the teacher of the class.
 
 ## Handling transitions
 
@@ -42,3 +42,5 @@ The classAudio is the path to MP3 audio file that has the voice of the teacher o
      </tr>
 </table>
 ```
+
+Every object that class the **classroom_resource** 
