@@ -1,12 +1,12 @@
 var classResourcesArray = document.getElementsByClassName("classroom_resource");
-var classInvertedArray = timeEvents.reverse();
+var classInvertedArray = classroom_events.reverse();
 
-var audio = new Audio(classAudio);
-audio.addEventListener("timeupdate",function()
+var classroom_audio = new Audio(classroom_audio_path);
+classroom_audio.addEventListener("timeupdate",function()
 	{
 	updateTimer();
 
-	if (audio.currentTime<1)
+	if (classroom_audio.currentTime<1)
 		{
 		for (var i=0;i<classResourcesArray.length;i++)
 			{
@@ -26,7 +26,7 @@ audio.addEventListener("timeupdate",function()
 
 		for (var i=0;i<classInvertedArray.length;i++)
 			{
-			if (audio.currentTime>classInvertedArray[i])
+			if (classroom_audio.currentTime>classInvertedArray[i])
 				{
 				if (latestLocation==null)
 					{
@@ -67,7 +67,7 @@ function audioRewind()
 	{
 	try
 		{
-		audio.currentTime = audio.currentTime - 2;
+		classroom_audio.currentTime = classroom_audio.currentTime - 2;
 		}
 		catch(err)
 		{
@@ -78,7 +78,7 @@ function audioForward()
 	{
 	try
 		{
-		audio.currentTime = audio.currentTime + 2
+		classroom_audio.currentTime = classroom_audio.currentTime + 2
 		}
 		catch(err)
 		{
@@ -101,7 +101,7 @@ function updateTimer()
 	{
 	try
 		{
-		parent.document.getElementsByClassName("classroom_timer")[0].innerHTML = toTimeString(audio.currentTime) + "/" + toTimeString(audio.duration);
+		parent.document.getElementsByClassName("classroom_timer")[0].innerHTML = toTimeString(classroom_audio.currentTime) + "/" + toTimeString(classroom_audio.duration);
 		}
 		catch(err)
 		{
@@ -112,13 +112,13 @@ window.onload = function()
 	{
 	try
 		{
-		audio.play();
+		classroom_audio.play();
 		}
 		catch(err)
 		{
 		}
 
-	audio.onended = function(){setTimeout(function(){parent.goBack()},1500)};
+	classroom_audio.onended = function(){setTimeout(function(){parent.goBack()},1500)};
 	document.addEventListener("click",parent.goBackButtonResetIncrement,false);
 	document.addEventListener("dblclick",parent.goBackButtonResetIncrement,false);
 	document.addEventListener("mousemove",parent.goBackButtonResetIncrement,false);
