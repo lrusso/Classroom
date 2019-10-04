@@ -13,7 +13,7 @@ https://lrusso.github.io/ClassRoom/ClassRoom.htm
 
 https://www.youtube.com/watch?v=WNGvmvJ_Q60
 
-## How to create your own classes
+## How to create your own classroom
 
 In https://github.com/lrusso/ClassRoom/blob/master/ClassRoom_Class01.htm, you will see this two variables:
 
