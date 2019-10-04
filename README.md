@@ -25,3 +25,20 @@ var classAudio = "ClassRoom_Class01.mp3";
 The timeEvents is an array that sets how many seconds must pass for the next transition.
 
 The classAudio is the path to MP3 audio file that has the voice of the teacher of the class.
+
+## Handling transitions
+
+```
+<table>
+     <tr>
+          <td colspan="2"><span class="classroom_resource classroom_resource_hidden">Introduction</span></td>
+     </tr>
+     <tr>
+          <td><img alt="" class="classroom_resource classroom_resource_hidden" src="data:image/png;base64,iVBOR=="></td>
+          <td><img alt="" class="classroom_resource classroom_resource_hidden" src="data:image/png;base64,iVBOR=="></td>
+     <tr>
+          <td><img alt="" class="classroom_resource classroom_resource_hidden" src="data:image/png;base64,iVBOR=="></td>
+          <td><img alt="" class="classroom_resource classroom_resource_hidden" src="data:image/png;base64,iVBOR=="></td>
+     </tr>
+</table>
+```
