@@ -51,12 +51,16 @@ Every object that has the class **classroom_resource_hidden** will be hidden by 
 
 ## Creating a test for your classroom
 
+In https://github.com/lrusso/ClassRoom/blob/master/ClassRoom_Class05.htm, you will see this four variables for text values that are going to used by the platform:
+
 ```
 var classroom_questions_correct = "CORRECT";
 var classroom_questions_incorrect = "INCORRECT";
 var classroom_questions_result_text = "YOUR TEST RESULT IS:";
 var classroom_questions_result_pointsof = "POINTS OF";
 ```
+
+You will also see
 
 ```
 var classroom_questions_array = [
