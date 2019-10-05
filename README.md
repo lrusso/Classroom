@@ -60,7 +60,7 @@ var classroom_questions_result_text = "YOUR TEST RESULT IS:";
 var classroom_questions_result_pointsof = "POINTS OF";
 ```
 
-You will also see
+You will also see this array, that will contains all the questions and possible answers.
 
 ```
 var classroom_questions_array = [
@@ -69,3 +69,11 @@ var classroom_questions_array = [
 				["Question 3 - This <b><u><i>formatted text</i></u></b> was designed and inserted by using which technologies?","HTML and CSS","HTML, CSS and JavaScript","PHP & MySQL",2],
 				];
 ```
+
+This is an example of a question:
+ 
+```
+["This is my question?","Possible Answer 1","Possible Answer 2","Possible Answer 3", 2]
+```
+
+The last value that you see in this example, is a 2, and that means that the correct answer will be the second one.
