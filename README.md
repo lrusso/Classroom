@@ -48,3 +48,20 @@ var classroom_audio_path = "ClassRoom_Class01.mp3";
 Every object that has the class **classroom_resource** will be considered for a fade-in transition effect, one by one, according to the order of insertion of those objects in the Web document.
 
 Every object that has the class **classroom_resource_hidden** will be hidden by default.
+
+## Creating tests
+
+```
+var classroom_questions_correct = "CORRECT";
+var classroom_questions_incorrect = "INCORRECT";
+var classroom_questions_result_text = "YOUR TEST RESULT IS:";
+var classroom_questions_result_pointsof = "POINTS OF";
+```
+
+```
+var classroom_questions_array = [
+				["Question 1 - This is a Test?","Yes","No","Maybe",1],
+				["Question 2 - How many available answers do you have now?","1","2","",2],
+				["Question 3 - This <b><u><i>formatted text</i></u></b> was designed and inserted by using which technologies?","HTML and CSS","HTML, CSS and JavaScript","PHP & MySQL",2],
+				];
+```
