@@ -160,155 +160,161 @@ function insertQuestionAt(arrayIndex)
 
 function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer3,answervalid)
 	{
-	var classroom_question_container = document.createElement("div");
-	classroom_question_container.className = "classroom_question_container";
-
-	var classroom_question_question = document.createElement("div");
-	classroom_question_question.className = "classroom_question_question";
-	classroom_question_question.innerHTML = question;
-	classroom_question_container.appendChild(classroom_question_question);
-
-	var classroom_question_answer1 = document.createElement("div");
-	classroom_question_answer1.className = "classroom_question_answer";
-	classroom_question_answer1.innerHTML = answer1;
-	classroom_question_answer1.onclick = function()
+	try
 		{
-		if (!classroom_question_answer1.tag)
+		var classroom_question_container = document.createElement("div");
+		classroom_question_container.className = "classroom_question_container";
+
+		var classroom_question_question = document.createElement("div");
+		classroom_question_question.className = "classroom_question_question";
+		classroom_question_question.innerHTML = question;
+		classroom_question_container.appendChild(classroom_question_question);
+
+		var classroom_question_answer1 = document.createElement("div");
+		classroom_question_answer1.className = "classroom_question_answer";
+		classroom_question_answer1.innerHTML = answer1;
+		classroom_question_answer1.onclick = function()
 			{
-			if (answervalid==1)
+			if (!classroom_question_answer1.tag)
 				{
-				classroom_question_answer1.style.backgroundColor = "#3D8B37";
-				classroom_question_answer1.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_correct";
-				classroom_question_status.innerHTML = classroom_questions_correct;
-				classroom_result = classroom_result + 1;
+				if (answervalid==1)
+					{
+					classroom_question_answer1.style.backgroundColor = "#3D8B37";
+					classroom_question_answer1.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_correct";
+					classroom_question_status.innerHTML = classroom_questions_correct;
+					classroom_result = classroom_result + 1;
+					}
+				else if (answervalid==2)
+					{
+					classroom_question_answer1.style.backgroundColor = "firebrick";
+					classroom_question_answer1.style.color  = "white";
+					classroom_question_answer2.style.backgroundColor = "#3D8B37";
+					classroom_question_answer2.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_incorrect";
+					classroom_question_status.innerHTML = classroom_questions_incorrect;
+					}
+				else if (answervalid==3)
+					{
+					classroom_question_answer1.style.backgroundColor = "firebrick";
+					classroom_question_answer1.style.color  = "white";
+					classroom_question_answer3.style.backgroundColor = "#3D8B37";
+					classroom_question_answer3.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_incorrect";
+					classroom_question_status.innerHTML = classroom_questions_incorrect;
+					}
+				classroom_question_answer1.tag = "answered";
+				classroom_question_answer2.tag = "answered";
+				classroom_question_answer3.tag = "answered";
+				insertQuestionAt(arrayIndex+1);
 				}
-			else if (answervalid==2)
-				{
-				classroom_question_answer1.style.backgroundColor = "firebrick";
-				classroom_question_answer1.style.color  = "white";
-				classroom_question_answer2.style.backgroundColor = "#3D8B37";
-				classroom_question_answer2.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_incorrect";
-				classroom_question_status.innerHTML = classroom_questions_incorrect;
-				}
-			else if (answervalid==3)
-				{
-				classroom_question_answer1.style.backgroundColor = "firebrick";
-				classroom_question_answer1.style.color  = "white";
-				classroom_question_answer3.style.backgroundColor = "#3D8B37";
-				classroom_question_answer3.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_incorrect";
-				classroom_question_status.innerHTML = classroom_questions_incorrect;
-				}
-			classroom_question_answer1.tag = "answered";
-			classroom_question_answer2.tag = "answered";
-			classroom_question_answer3.tag = "answered";
-			insertQuestionAt(arrayIndex+1);
-			}
-		};
+			};
 
-	if (answer1!="")
-		{
-		classroom_question_container.appendChild(classroom_question_answer1);
-		}
-
-	var classroom_question_answer2 = document.createElement("div");
-	classroom_question_answer2.className = "classroom_question_answer";
-	classroom_question_answer2.innerHTML = answer2;
-	classroom_question_answer2.onclick = function()
-		{
-		if (!classroom_question_answer2.tag)
+		if (answer1!="")
 			{
-			if (answervalid==1)
-				{
-				classroom_question_answer1.style.backgroundColor = "#3D8B37";
-				classroom_question_answer1.style.color  = "white";
-				classroom_question_answer2.style.backgroundColor = "firebrick";
-				classroom_question_answer2.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_incorrect";
-				classroom_question_status.innerHTML = classroom_questions_incorrect;
-				}
-			else if (answervalid==2)
-				{
-				classroom_question_answer2.style.backgroundColor = "#3D8B37";
-				classroom_question_answer2.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_correct";
-				classroom_question_status.innerHTML = classroom_questions_correct;
-				classroom_result = classroom_result + 1;
-				}
-			else if (answervalid==3)
-				{
-				classroom_question_answer2.style.backgroundColor = "firebrick";
-				classroom_question_answer2.style.color  = "white";
-				classroom_question_answer3.style.backgroundColor = "#3D8B37";
-				classroom_question_answer3.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_incorrect";
-				classroom_question_status.innerHTML = classroom_questions_incorrect;
-				}
-			classroom_question_answer1.tag = "answered";
-			classroom_question_answer2.tag = "answered";
-			classroom_question_answer3.tag = "answered";
-			insertQuestionAt(arrayIndex+1);
+			classroom_question_container.appendChild(classroom_question_answer1);
 			}
-		};
 
-	if (answer2!="")
-		{
-		classroom_question_container.appendChild(classroom_question_answer2);
-		}
-
-	var classroom_question_answer3 = document.createElement("div");
-	classroom_question_answer3.className = "classroom_question_answer";
-	classroom_question_answer3.innerHTML = answer3;
-	classroom_question_answer3.onclick = function()
-		{
-		if (!classroom_question_answer3.tag)
+		var classroom_question_answer2 = document.createElement("div");
+		classroom_question_answer2.className = "classroom_question_answer";
+		classroom_question_answer2.innerHTML = answer2;
+		classroom_question_answer2.onclick = function()
 			{
-			if (answervalid==1)
+			if (!classroom_question_answer2.tag)
 				{
-				classroom_question_answer1.style.backgroundColor = "#3D8B37";
-				classroom_question_answer1.style.color  = "white";
-				classroom_question_answer3.style.backgroundColor = "firebrick";
-				classroom_question_answer3.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_incorrect";
-				classroom_question_status.innerHTML = classroom_questions_incorrect;
+				if (answervalid==1)
+					{
+					classroom_question_answer1.style.backgroundColor = "#3D8B37";
+					classroom_question_answer1.style.color  = "white";
+					classroom_question_answer2.style.backgroundColor = "firebrick";
+					classroom_question_answer2.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_incorrect";
+					classroom_question_status.innerHTML = classroom_questions_incorrect;
+					}
+				else if (answervalid==2)
+					{
+					classroom_question_answer2.style.backgroundColor = "#3D8B37";
+					classroom_question_answer2.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_correct";
+					classroom_question_status.innerHTML = classroom_questions_correct;
+					classroom_result = classroom_result + 1;
+					}
+				else if (answervalid==3)
+					{
+					classroom_question_answer2.style.backgroundColor = "firebrick";
+					classroom_question_answer2.style.color  = "white";
+					classroom_question_answer3.style.backgroundColor = "#3D8B37";
+					classroom_question_answer3.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_incorrect";
+					classroom_question_status.innerHTML = classroom_questions_incorrect;
+					}
+				classroom_question_answer1.tag = "answered";
+				classroom_question_answer2.tag = "answered";
+				classroom_question_answer3.tag = "answered";
+				insertQuestionAt(arrayIndex+1);
 				}
-			else if (answervalid==2)
-				{
-				classroom_question_answer2.style.backgroundColor = "#3D8B37";
-				classroom_question_answer2.style.color  = "white";
-				classroom_question_answer3.style.backgroundColor = "firebrick";
-				classroom_question_answer3.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_incorrect";
-				classroom_question_status.innerHTML = classroom_questions_incorrect;
-				}
-			else if (answervalid==3)
-				{
-				classroom_question_answer3.style.backgroundColor = "#3D8B37";
-				classroom_question_answer3.style.color  = "white";
-				classroom_question_status.className = "classroom_question_status_correct";
-				classroom_question_status.innerHTML = classroom_questions_correct;
-				classroom_result = classroom_result + 1;
-				}
-			classroom_question_answer1.tag = "answered";
-			classroom_question_answer2.tag = "answered";
-			classroom_question_answer3.tag = "answered";
-			insertQuestionAt(arrayIndex+1);
+			};
+
+		if (answer2!="")
+			{
+			classroom_question_container.appendChild(classroom_question_answer2);
 			}
-		};
 
-	if (answer3!="")
-		{
-		classroom_question_container.appendChild(classroom_question_answer3);
+		var classroom_question_answer3 = document.createElement("div");
+		classroom_question_answer3.className = "classroom_question_answer";
+		classroom_question_answer3.innerHTML = answer3;
+		classroom_question_answer3.onclick = function()
+			{
+			if (!classroom_question_answer3.tag)
+				{
+				if (answervalid==1)
+					{
+					classroom_question_answer1.style.backgroundColor = "#3D8B37";
+					classroom_question_answer1.style.color  = "white";
+					classroom_question_answer3.style.backgroundColor = "firebrick";
+					classroom_question_answer3.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_incorrect";
+					classroom_question_status.innerHTML = classroom_questions_incorrect;
+					}
+				else if (answervalid==2)
+					{
+					classroom_question_answer2.style.backgroundColor = "#3D8B37";
+					classroom_question_answer2.style.color  = "white";
+					classroom_question_answer3.style.backgroundColor = "firebrick";
+					classroom_question_answer3.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_incorrect";
+					classroom_question_status.innerHTML = classroom_questions_incorrect;
+					}
+				else if (answervalid==3)
+					{
+					classroom_question_answer3.style.backgroundColor = "#3D8B37";
+					classroom_question_answer3.style.color  = "white";
+					classroom_question_status.className = "classroom_question_status_correct";
+					classroom_question_status.innerHTML = classroom_questions_correct;
+					classroom_result = classroom_result + 1;
+					}
+				classroom_question_answer1.tag = "answered";
+				classroom_question_answer2.tag = "answered";
+				classroom_question_answer3.tag = "answered";
+				insertQuestionAt(arrayIndex+1);
+				}
+			};
+
+		if (answer3!="")
+			{
+			classroom_question_container.appendChild(classroom_question_answer3);
+			}
+
+		var classroom_question_status = document.createElement("div");
+		classroom_question_container.appendChild(classroom_question_status);
+
+		document.getElementById(containerID).appendChild(classroom_question_container);
+
+		window.scrollTo(0,document.body.scrollHeight);
 		}
-
-	var classroom_question_status = document.createElement("div");
-	classroom_question_container.appendChild(classroom_question_status);
-
-	document.getElementById(containerID).appendChild(classroom_question_container);
-
-	window.scrollTo(0,document.body.scrollHeight);
+		catch(err)
+		{
+		}
 	}
 
 window.onload = function()
