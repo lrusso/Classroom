@@ -253,9 +253,13 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
+
+				// SETTING THAT THE ANSWERS FOR THIS QUESTION ARE NOT LONGER CLICKEABLES
 				classroom_question_answer1.tag = "answered";
 				classroom_question_answer2.tag = "answered";
 				classroom_question_answer3.tag = "answered";
+
+				// INSERTING THE NEXT QUESTION
 				insertQuestionAt(arrayIndex+1);
 				}
 			};
@@ -302,9 +306,13 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
+
+				// SETTING THAT THE ANSWERS FOR THIS QUESTION ARE NOT LONGER CLICKEABLES
 				classroom_question_answer1.tag = "answered";
 				classroom_question_answer2.tag = "answered";
 				classroom_question_answer3.tag = "answered";
+
+				// INSERTING THE NEXT QUESTION
 				insertQuestionAt(arrayIndex+1);
 				}
 			};
@@ -351,9 +359,13 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 					classroom_question_status.innerHTML = classroom_questions_correct;
 					classroom_result = classroom_result + 1;
 					}
+
+				// SETTING THAT THE ANSWERS FOR THIS QUESTION ARE NOT LONGER CLICKEABLES
 				classroom_question_answer1.tag = "answered";
 				classroom_question_answer2.tag = "answered";
 				classroom_question_answer3.tag = "answered";
+
+				// INSERTING THE NEXT QUESTION
 				insertQuestionAt(arrayIndex+1);
 				}
 			};
