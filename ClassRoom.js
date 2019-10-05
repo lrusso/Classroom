@@ -72,6 +72,7 @@ try
 try
 	{
 	var classroom_result = 0;
+
 	if (classroom_questions_array)
 		{
 		insertQuestionAt(0);
@@ -139,7 +140,7 @@ function insertQuestionAt(arrayIndex)
 			{
 			var classroom_result_percentage = Math.floor(classroom_result * 100 / classroom_questions_array.length);
 			var classroom_result_label = document.createElement("div");
-			classroom_result_label.className = "classroom_result_label";
+			classroom_result_label.className = "classroom_result_label classroom_question_fadein";
 			if (classroom_result_percentage>=60)
 				{
 				classroom_result_label.innerHTML = classroom_questions_result_text + " <span style='color:green'>" + classroom_result_percentage + " " + classroom_questions_result_pointsof + " 100</span>.";
@@ -148,9 +149,12 @@ function insertQuestionAt(arrayIndex)
 				{
 				classroom_result_label.innerHTML = classroom_questions_result_text + " <span style='color:red'>" + classroom_result_percentage + " " + classroom_questions_result_pointsof + " 100</span>.";
 				}
-			document.getElementById("classroom_questions").appendChild(classroom_result_label);
 
-			window.scrollTo(0,document.body.scrollHeight);
+			setTimeout(function()
+				{
+				document.getElementById("classroom_questions").appendChild(classroom_result_label);
+				window.scrollTo(0,document.body.scrollHeight);
+				}, 1000);
 			}
 		}
 		catch(err)
@@ -163,7 +167,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 	try
 		{
 		var classroom_question_container = document.createElement("div");
-		classroom_question_container.className = "classroom_question_container";
+		classroom_question_container.className = "classroom_question_container classroom_question_fadein";
 
 		var classroom_question_question = document.createElement("div");
 		classroom_question_question.className = "classroom_question_question";
@@ -308,9 +312,11 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		var classroom_question_status = document.createElement("div");
 		classroom_question_container.appendChild(classroom_question_status);
 
-		document.getElementById(containerID).appendChild(classroom_question_container);
-
-		window.scrollTo(0,document.body.scrollHeight);
+		setTimeout(function()
+			{
+			document.getElementById(containerID).appendChild(classroom_question_container);
+			window.scrollTo(0,document.body.scrollHeight);
+			}, 1000);
 		}
 		catch(err)
 		{

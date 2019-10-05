@@ -62,4 +62,7 @@
 .classroom_question_answer:hover{background-color:#D3D3D3}
 .classroom_question_status_correct{clear:both;display:inline-block;min-width:100px;border-radius:10px;margin-left:10px;padding-left:15px;padding-right:15px;line-height:2.7;text-align:center;margin-right:20px;font-family:Arial;font-size:13pt;color:black;color:green}
 .classroom_question_status_incorrect{clear:both;display:inline-block;min-width:100px;border-radius:10px;margin-left:10px;padding-left:15px;padding-right:15px;line-height:2.7;text-align:center;margin-right:20px;font-family:Arial;font-size:13pt;color:black;color:red}
+.classroom_question_fadein{-webkit-animation:classroom_question_fadein_effect 2s;-moz-animation:classroom_question_fadein_effect 2s;-ms-animation:classroom_question_fadein_effect 2s;-o-animation:classroom_question_fadein_effect 2s;animation:classroom_question_fadein_effect 2s;}
+@keyframes classroom_question_fadein_effect{from{opacity:0}to{opacity:1}}
+
 .classroom_result_label{font-family:Arial;font-size:17pt;line-height:2.7;margin-left:10px;color:#3a76b1}
