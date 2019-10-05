@@ -61,6 +61,7 @@ try
 					}
 				}
 
+			// CHECKING IF AN ELEMENT WAS DISPLAYED
 			if (classroom_location_latest!=null)
 				{
 				// HIDDING ALL ELEMENTS AFTER THE LATEST LOCATION
@@ -85,10 +86,14 @@ try
 
 try
 	{
+	// CREATING AND SETTING THE INITIAL TEST RESULT
 	var classroom_result = 0;
 
+	// CHECKING IF THE CLASSROOM HAS AN ARRAY WITH QUESTIONS.
+	// IF IT DOES, IT MEANS THAT CLASS IS ACTUALLY A TEST FOR THE STUDENT.
 	if (classroom_questions_array)
 		{
+		// INSERTING THE FIRST QUESTION
 		insertQuestionAt(0);
 		}
 	}
