@@ -18,10 +18,10 @@
 			var STRING_FORWARD = "Forward";
 			var STRING_LOADING = "Loading class...";
 			var STRING_CLASS1 = "Class 1 - Introduction";
-			var STRING_CLASS2 = "Class 2 - Styling Objects";
+			var STRING_CLASS2 = "Class 2 - HTML Objects";
 			var STRING_CLASS3 = "Class 3 - CSS Implementation";
-			var STRING_CLASS4 = "Class 4 - Uploading Files";
-			var STRING_CLASS5 = "Class 5 - W3C Code Validation";
+			var STRING_CLASS4 = "Class 4 - W3C Code Validation";
+			var STRING_CLASS5 = "Class 5 - Course Test";
 			var STRING_TIP = "Click in any Class Title to begin";
 
 			function loadClass(url)
@@ -54,8 +54,6 @@
 
 						// LOADING THE CLASS
 						document.getElementById("classroom_container").contentDocument.location.replace(url);
-
-
 
 						// HIDING THE PLEASE WAIT ANIMATION
 						document.getElementsByClassName("classroom_pleasewait")[0].style.display = "none";
@@ -166,17 +164,21 @@
 						// SHOWS THE GO BACK BUTTON
 						document.getElementsByClassName("classroom_goback")[0].style.display = "block";
 
-						// SHOWS THE REWIND BUTTON
-						document.getElementsByClassName("classroom_rewind")[0].style.display = "block";
+						// CHECKING IF THERE IS AN AUDIO OBJECT IN THE CONTAINER
+						if (document.getElementById("classroom_container").contentWindow.classroom_audio_path)
+							{
+							// SHOWS THE REWIND BUTTON
+							document.getElementsByClassName("classroom_rewind")[0].style.display = "block";
 
-						// SHOWS THE RELOAD BUTTON
-						document.getElementById("buttonPauseResume").style.display = "block";
+							// SHOWS THE RELOAD BUTTON
+							document.getElementById("buttonPauseResume").style.display = "block";
 
-						// SHOWS THE FORDWARD BUTTON
-						document.getElementsByClassName("classroom_forward")[0].style.display = "block";
+							// SHOWS THE FORDWARD BUTTON
+							document.getElementsByClassName("classroom_forward")[0].style.display = "block";
 
-						// SHOWS THE TIMER
-						document.getElementsByClassName("classroom_timer")[0].style.display = "block";
+							// SHOWS THE TIMER
+							document.getElementsByClassName("classroom_timer")[0].style.display = "block";
+							}
 						}
 					}
 					catch(err)
@@ -259,7 +261,7 @@
 						<div class="classroom_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')"><script>document.write(STRING_CLASS2)</script></div>
 						<div class="classroom_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')"><script>document.write(STRING_CLASS3)</script></div>
 						<div class="classroom_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')"><script>document.write(STRING_CLASS4)</script></div>
-						<div class="classroom_board_content_class" onclick="loadClass('ClassRoom_Class01.htm')"><script>document.write(STRING_CLASS5)</script></div>
+						<div class="classroom_board_content_class" onclick="loadClass('ClassRoom_Class05.htm')"><script>document.write(STRING_CLASS5)</script></div>
 						<div class="classroom_board_content_tip"><script>document.write(STRING_TIP)</script></div>
 					</div>
 				</div>
