@@ -77,3 +77,9 @@ This is an example of a question:
 ```
 
 The last value that you see in this example, is a 2, and that means that the correct answer will be the second one.
+
+You can also insert a question with only two possible answers by doing this:
+
+```
+["This is a test?","Yes","No","", 1]
+```
