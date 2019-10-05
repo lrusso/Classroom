@@ -15,7 +15,7 @@ try
 		// UPDATING THE AUDIO TIMER LABEL
 		updateTimer();
 
-		// IF THE CURRENT TIME OF THE AUDIO IS LESS THAN 1
+		// CHECKING IF THE CURRENT TIME OF THE AUDIO IS LESS THAN 1
 		if (classroom_audio.currentTime<1)
 			{
 			// HIDDING ALL THE OBJECT THAT MUST HAVE A FADE IN EFFECT
@@ -39,10 +39,13 @@ try
 			// CHECKING EVERY CLASSROOM FADE IN EVENT
 			for (var i=0;i<classroom_events_array.length;i++)
 				{
+				// CHECKING IF THE CURRENT TIME OF THE AUDIO IS GREATER THAN THE TIME OF AN SPECIFIC FADE IN EVENT
 				if (classroom_audio.currentTime>classroom_events_array[i])
 					{
+					// CHECKING IF THE VARIABLE FOR THE LAST ELEMENT WAS USED
 					if (classroom_location_latest==null)
 						{
+						// SETTING THE ARRAY INDEX OF THE LAST ELEMENT THAT WILL BE DISPLAYED
 						classroom_location_latest = classroom_events_array.length - i - 1;
 
 						// SHOWING THE ELEMENT AT THE LATEST LOCATION
