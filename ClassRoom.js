@@ -219,6 +219,8 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		var classroom_question_answer1 = document.createElement("div");
 		classroom_question_answer1.className = "classroom_question_answer";
 		classroom_question_answer1.innerHTML = answer1;
+
+		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER
 		classroom_question_answer1.onclick = function()
 			{
 			if (!classroom_question_answer1.tag)
@@ -265,6 +267,8 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		var classroom_question_answer2 = document.createElement("div");
 		classroom_question_answer2.className = "classroom_question_answer";
 		classroom_question_answer2.innerHTML = answer2;
+
+		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER
 		classroom_question_answer2.onclick = function()
 			{
 			if (!classroom_question_answer2.tag)
@@ -311,6 +315,8 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		var classroom_question_answer3 = document.createElement("div");
 		classroom_question_answer3.className = "classroom_question_answer";
 		classroom_question_answer3.innerHTML = answer3;
+
+		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER
 		classroom_question_answer3.onclick = function()
 			{
 			if (!classroom_question_answer3.tag)
@@ -353,6 +359,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 			classroom_question_container.appendChild(classroom_question_answer3);
 			}
 
+		// CREATING AND ADDING THE CONTAINER FOR THE ANSWER RESULT
 		var classroom_question_status = document.createElement("div");
 		classroom_question_container.appendChild(classroom_question_status);
 
