@@ -149,6 +149,8 @@ function insertQuestionAt(arrayIndex)
 				classroom_result_label.innerHTML = classroom_questions_result_text + " <span style='color:red'>" + classroom_result_percentage + " " + classroom_questions_result_pointsof + " 100</span>.";
 				}
 			document.getElementById("classroom_questions").appendChild(classroom_result_label);
+
+			window.scrollTo(0,document.body.scrollHeight);
 			}
 		}
 		catch(err)
@@ -305,6 +307,8 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 	classroom_question_container.appendChild(classroom_question_status);
 
 	document.getElementById(containerID).appendChild(classroom_question_container);
+
+	window.scrollTo(0,document.body.scrollHeight);
 	}
 
 window.onload = function()
