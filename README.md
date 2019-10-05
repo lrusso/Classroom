@@ -28,7 +28,7 @@ var classroom_audio_path = "ClassRoom_Class01.mp3";
 
 * Design your Web page for the classroom using as many HTML elements as you need.
 
-## Handling transitions
+## Handling transitions in your classroom
 
 ```
 <table>
@@ -49,7 +49,7 @@ Every object that has the class **classroom_resource** will be considered for a 
 
 Every object that has the class **classroom_resource_hidden** will be hidden by default.
 
-## Creating tests
+## Creating a test for your classroom
 
 ```
 var classroom_questions_correct = "CORRECT";
