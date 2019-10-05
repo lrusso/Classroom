@@ -316,7 +316,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 					classroom_question_answer2.style.backgroundColor = "#3D8B37";
 					classroom_question_answer2.style.color  = "white";
 
-					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
+					// SHOWING THE 'CORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_correct";
 					classroom_question_status.innerHTML = classroom_questions_correct;
 
@@ -399,7 +399,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 					classroom_question_answer3.style.backgroundColor = "#3D8B37";
 					classroom_question_answer3.style.color  = "white";
 
-					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
+					// SHOWING THE 'CORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_correct";
 					classroom_question_status.innerHTML = classroom_questions_correct;
 
