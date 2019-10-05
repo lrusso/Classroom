@@ -226,30 +226,45 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 			// CHECKING IF THE ANSWER BUTTON CAN BE CLICKEABLE BY CHECKING IF IT HAS A TAG. IF THERE ISN'T A TAG, IS CLICKEABLE.
 			if (!classroom_question_answer1.tag)
 				{
-				// CHECKING IF 
+				// CHECKING IF THE ANSWER IS VALID
 				if (answervalid==1)
 					{
+					// SELECTING THE ANSWER 1 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer1.style.backgroundColor = "#3D8B37";
 					classroom_question_answer1.style.color  = "white";
+
+					// SHOWING THE 'CORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_correct";
 					classroom_question_status.innerHTML = classroom_questions_correct;
+
+					// ADDING ONE POINT TO THE TEST RESULT
 					classroom_result = classroom_result + 1;
 					}
 				else if (answervalid==2)
 					{
+					// SELECTING THE ANSWER 1 AS INCORRECT (RED BACKGROUND AND WHITE TEXT)
 					classroom_question_answer1.style.backgroundColor = "#b22222";
 					classroom_question_answer1.style.color  = "white";
+
+					// SELECTING THE ANSWER 2 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer2.style.backgroundColor = "#3D8B37";
 					classroom_question_answer2.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
 				else if (answervalid==3)
 					{
+					// SELECTING THE ANSWER 1 AS INCORRECT (RED BACKGROUND AND WHITE TEXT)
 					classroom_question_answer1.style.backgroundColor = "#b22222";
 					classroom_question_answer1.style.color  = "white";
+
+					// SELECTING THE ANSWER 3 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer3.style.backgroundColor = "#3D8B37";
 					classroom_question_answer3.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
@@ -283,27 +298,42 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 				{
 				if (answervalid==1)
 					{
+					// SELECTING THE ANSWER 1 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer1.style.backgroundColor = "#3D8B37";
 					classroom_question_answer1.style.color  = "white";
+
+					// SELECTING THE ANSWER 2 AS INCORRECT (RED BACKGROUND AND WHITE TEXT)
 					classroom_question_answer2.style.backgroundColor = "#b22222";
 					classroom_question_answer2.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
 				else if (answervalid==2)
 					{
+					// SELECTING THE ANSWER 2 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer2.style.backgroundColor = "#3D8B37";
 					classroom_question_answer2.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_correct";
 					classroom_question_status.innerHTML = classroom_questions_correct;
+
+					// ADDING ONE POINT TO THE TEST RESULT
 					classroom_result = classroom_result + 1;
 					}
 				else if (answervalid==3)
 					{
+					// SELECTING THE ANSWER 2 AS INCORRECT (RED BACKGROUND AND WHITE TEXT)
 					classroom_question_answer2.style.backgroundColor = "#b22222";
 					classroom_question_answer2.style.color  = "white";
+
+					// SELECTING THE ANSWER 3 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer3.style.backgroundColor = "#3D8B37";
 					classroom_question_answer3.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
@@ -337,28 +367,43 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 				{
 				if (answervalid==1)
 					{
+					// SELECTING THE ANSWER 1 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer1.style.backgroundColor = "#3D8B37";
 					classroom_question_answer1.style.color  = "white";
+
+					// SELECTING THE ANSWER 3 AS INCORRECT (RED BACKGROUND AND WHITE TEXT)
 					classroom_question_answer3.style.backgroundColor = "#b22222";
 					classroom_question_answer3.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
 				else if (answervalid==2)
 					{
+					// SELECTING THE ANSWER 2 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer2.style.backgroundColor = "#3D8B37";
 					classroom_question_answer2.style.color  = "white";
+
+					// SELECTING THE ANSWER 3 AS INCORRECT (RED BACKGROUND AND WHITE TEXT)
 					classroom_question_answer3.style.backgroundColor = "#b22222";
 					classroom_question_answer3.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_incorrect";
 					classroom_question_status.innerHTML = classroom_questions_incorrect;
 					}
 				else if (answervalid==3)
 					{
+					// SELECTING THE ANSWER 3 AS CORRECT (GREEN BACKGROUND AND WHITE TEXT)
 					classroom_question_answer3.style.backgroundColor = "#3D8B37";
 					classroom_question_answer3.style.color  = "white";
+
+					// SHOWING THE 'INCORRECT' LABEL RIGHT NEXT TO THE ANSWERS
 					classroom_question_status.className = "classroom_question_status_correct";
 					classroom_question_status.innerHTML = classroom_questions_correct;
+
+					// ADDING ONE POINT TO THE TEST RESULT
 					classroom_result = classroom_result + 1;
 					}
 
