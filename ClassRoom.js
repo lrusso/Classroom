@@ -1,15 +1,24 @@
 try
 	{
+	// GETTING ALL THE OBJECTS THAT MUST HAVE A FADE IN EFFECT
 	var classroom_resources_array = document.getElementsByClassName("classroom_resource");
+
+	// REVERSING THE TIME EVENT ARRAY
 	var classroom_events_array = classroom_events.reverse();
 
+	// CREATING THE AUDIO ELEMENT THAT WILL BE PLAYING THE MP3 FILE DURING THE CLASS
 	var classroom_audio = new Audio(classroom_audio_path);
+
+	// SETTING WHAT WILL HAPPEN WHEN WHILE THE AUDIO IS PLAYING
 	classroom_audio.addEventListener("timeupdate",function()
 		{
+		// UPDATING THE AUDIO TIMER LABEL
 		updateTimer();
 
+		// IF THE CURRENT TIME OF THE AUDIO IS LESS THAN 1
 		if (classroom_audio.currentTime<1)
 			{
+			// HIDDING ALL THE OBJECT THAT MUST HAVE A FADE IN EFFECT
 			for (var i=0;i<classroom_resources_array.length;i++)
 				{
 				try
@@ -24,8 +33,10 @@ try
 			}
 			else
 			{
+			// CREATING THE VARIABLE THAT WILL CONTAIN THE ARRAY INDEX OF THE LAST ELEMENT THAT WAS DISPLAYED
 			var classroom_location_latest = null;
 
+			// CHECKING EVERY CLASSROOM FADE IN EVENT
 			for (var i=0;i<classroom_events_array.length;i++)
 				{
 				if (classroom_audio.currentTime>classroom_events_array[i])
@@ -325,6 +336,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 
 window.onload = function()
 	{
+	// WHEN THE WEB PAGE IS LOADED, THE AUDIO FILE WILL PLAY
 	try
 		{
 		classroom_audio.play();
@@ -332,6 +344,8 @@ window.onload = function()
 		catch(err)
 		{
 		}
+
+	// WHEN THE AUDIO FILE ENDS, THE USER WILL BE REDIRECTED TO THE BOARD
 	try
 		{
 		classroom_audio.onended = function()
