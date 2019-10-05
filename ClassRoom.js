@@ -264,6 +264,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 				}
 			};
 
+		// CHECKING IF ANSWER HAS A TEXT
 		if (answer1!="")
 			{
 			classroom_question_container.appendChild(classroom_question_answer1);
@@ -317,6 +318,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 				}
 			};
 
+		// CHECKING IF ANSWER HAS A TEXT
 		if (answer2!="")
 			{
 			classroom_question_container.appendChild(classroom_question_answer2);
@@ -370,6 +372,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 				}
 			};
 
+		// CHECKING IF ANSWER HAS A TEXT
 		if (answer3!="")
 			{
 			classroom_question_container.appendChild(classroom_question_answer3);
