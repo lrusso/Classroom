@@ -188,7 +188,7 @@ function insertQuestionAt(arrayIndex)
 			// WAITING A SECOND
 			setTimeout(function()
 				{
-				// ADDING A SHOWING THE TEST RESULT
+				// ADDING THE TEST RESULT TO THE WEB DOCUMENT
 				document.getElementById("classroom_questions").appendChild(classroom_result_label);
 
 				// SCROLLING DOWN
@@ -205,14 +205,17 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 	{
 	try
 		{
+		// CREATING THE MAIN CONTAINER
 		var classroom_question_container = document.createElement("div");
 		classroom_question_container.className = "classroom_question_container classroom_question_fadein";
 
+		// CREATING THE CONTAINER FOR THE QUESTION
 		var classroom_question_question = document.createElement("div");
 		classroom_question_question.className = "classroom_question_question";
 		classroom_question_question.innerHTML = question;
 		classroom_question_container.appendChild(classroom_question_question);
 
+		// CREATING THE CONTAINER FOR THE ANSWER 1
 		var classroom_question_answer1 = document.createElement("div");
 		classroom_question_answer1.className = "classroom_question_answer";
 		classroom_question_answer1.innerHTML = answer1;
@@ -258,6 +261,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 			classroom_question_container.appendChild(classroom_question_answer1);
 			}
 
+		// CREATING THE CONTAINER FOR THE ANSWER 2
 		var classroom_question_answer2 = document.createElement("div");
 		classroom_question_answer2.className = "classroom_question_answer";
 		classroom_question_answer2.innerHTML = answer2;
@@ -303,6 +307,7 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 			classroom_question_container.appendChild(classroom_question_answer2);
 			}
 
+		// CREATING THE CONTAINER FOR THE ANSWER 3
 		var classroom_question_answer3 = document.createElement("div");
 		classroom_question_answer3.className = "classroom_question_answer";
 		classroom_question_answer3.innerHTML = answer3;
@@ -351,9 +356,13 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		var classroom_question_status = document.createElement("div");
 		classroom_question_container.appendChild(classroom_question_status);
 
+		// WAITING A SECOND
 		setTimeout(function()
 			{
+			// ADDING THE QUESTION TO THE WEB DOCUMENT
 			document.getElementById(containerID).appendChild(classroom_question_container);
+
+			// SCROLLING DOWN
 			window.scrollTo(0,document.body.scrollHeight);
 			}, 1000);
 		}
