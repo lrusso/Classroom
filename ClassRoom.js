@@ -150,16 +150,32 @@ function insertQuestionAt(arrayIndex)
 	{
 	try
 		{
+		// CHECKING IF THERE IS A PENDING QUESTION TO BE DISPLAYED
 		if (arrayIndex<classroom_questions_array.length)
 			{
+			// CREATING A VARIABLE AND GETTING WITH THE ARRAY VALUE
 			var classroom_question = classroom_questions_array[arrayIndex];
+
+			// CREATING VARIABLES AND GETTING ALL THE DATA FROM THE QUESTION VARIABLE
+			var classroom_question_text_question = classroom_question[0]; // THE QUESTION - EX: THIS IS A TEST?
+			var classroom_question_text_answer1 = classroom_question[1];  // POSSIBLE ANSWER 1 - EX: YES
+			var classroom_question_text_answer2 = classroom_question[2];  // POSSIBLE ANSWER 2 - EX: NO
+			var classroom_question_text_answer3 = classroom_question[3];  // POSSIBLE ANSWER 3 - EX: MAYBE
+			var classroom_question_text_correct = classroom_question[4];  // CORRECT ANSWER - EX: 1
+
+			// INSERTING THE QUESTION
 			insertQuestion(arrayIndex,"classroom_questions",classroom_question[0],classroom_question[1],classroom_question[2],classroom_question[3],classroom_question[4]);
 			}
 			else
 			{
+			// CREATING A VARIABLE AND GETTING THE TEST RESULT (THE PERCENTAGE OF CORRECT ANSWERS)
 			var classroom_result_percentage = Math.floor(classroom_result * 100 / classroom_questions_array.length);
+
+			// CREATING THE CONTAINER FOR THE TEST RESULT
 			var classroom_result_label = document.createElement("div");
 			classroom_result_label.className = "classroom_result_label classroom_question_fadein";
+
+			// CHECKING IF THE TEST RESULT IF GREATER THAN 60, THE STUDENT PASSED THE TEST AND THE RESULT WILL BE IN GREEN, OTHERWISE, IN RED.
 			if (classroom_result_percentage>=60)
 				{
 				classroom_result_label.innerHTML = classroom_questions_result_text + " <span style='color:green'>" + classroom_result_percentage + " " + classroom_questions_result_pointsof + " 100</span>.";
@@ -169,9 +185,13 @@ function insertQuestionAt(arrayIndex)
 				classroom_result_label.innerHTML = classroom_questions_result_text + " <span style='color:red'>" + classroom_result_percentage + " " + classroom_questions_result_pointsof + " 100</span>.";
 				}
 
+			// WAITING A SECOND
 			setTimeout(function()
 				{
+				// ADDING A SHOWING THE TEST RESULT
 				document.getElementById("classroom_questions").appendChild(classroom_result_label);
+
+				// SCROLLING DOWN
 				window.scrollTo(0,document.body.scrollHeight);
 				}, 1000);
 			}
