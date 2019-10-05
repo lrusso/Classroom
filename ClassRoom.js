@@ -220,9 +220,10 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		classroom_question_answer1.className = "classroom_question_answer";
 		classroom_question_answer1.innerHTML = answer1;
 
-		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER
+		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER BUTTON
 		classroom_question_answer1.onclick = function()
 			{
+			// CHECKING IF THE ANSWER BUTTON CAN BE CLICKEABLE BY CHECKING IF IT HAS A TAG. IF THERE ISN'T A TAG, IS CLICKEABLE.
 			if (!classroom_question_answer1.tag)
 				{
 				if (answervalid==1)
@@ -268,9 +269,10 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		classroom_question_answer2.className = "classroom_question_answer";
 		classroom_question_answer2.innerHTML = answer2;
 
-		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER
+		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER BUTTON
 		classroom_question_answer2.onclick = function()
 			{
+			// CHECKING IF THE ANSWER BUTTON CAN BE CLICKEABLE BY CHECKING IF IT HAS A TAG. IF THERE ISN'T A TAG, IS CLICKEABLE.
 			if (!classroom_question_answer2.tag)
 				{
 				if (answervalid==1)
@@ -316,9 +318,10 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		classroom_question_answer3.className = "classroom_question_answer";
 		classroom_question_answer3.innerHTML = answer3;
 
-		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER
+		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER BUTTON
 		classroom_question_answer3.onclick = function()
 			{
+			// CHECKING IF THE ANSWER BUTTON CAN BE CLICKEABLE BY CHECKING IF IT HAS A TAG. IF THERE ISN'T A TAG, IS CLICKEABLE.
 			if (!classroom_question_answer3.tag)
 				{
 				if (answervalid==1)
