@@ -444,6 +444,15 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 
 window.onload = function()
 	{
+	// WHEN THE WEB PAGE IS LOADED, THE 'LOADING CLASS' SIGN WILL BE HIDDEN
+	try
+		{
+		parent.hidePleaseWait();
+		}
+		catch(err)
+		{
+		}
+
 	// WHEN THE WEB PAGE IS LOADED, THE AUDIO FILE WILL PLAY
 	try
 		{

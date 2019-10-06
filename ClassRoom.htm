@@ -54,9 +54,6 @@
 
 						// LOADING THE CLASS
 						document.getElementById("classroom_container").contentDocument.location.replace(url);
-
-						// HIDING THE PLEASE WAIT ANIMATION
-						document.getElementsByClassName("classroom_pleasewait")[0].style.display = "none";
 						}, 1500);
 					}
 					catch(err)
@@ -64,15 +61,10 @@
 					}
 				}
 
-			function reload()
+			function hidePleaseWait()
 				{
-				try
-					{
-					document.getElementById("classroom_container").contentDocument.location.reload(true);
-					}
-					catch(err)
-					{
-					}
+				// HIDING THE PLEASE WAIT ANIMATION
+				document.getElementsByClassName("classroom_pleasewait")[0].style.display = "none";
 				}
 
 			function goBack()
