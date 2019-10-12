@@ -16,7 +16,8 @@
 			var STRING_TITLE = "";
 			var STRING_GOBACK = "";
 			var STRING_REWIND = "";
-			var STRING_PAUSERESUME = "";
+			var STRING_PAUSE = "";
+			var STRING_RESUME = "";
 			var STRING_FORWARD = "";
 			var STRING_LOADING = "";
 			var STRING_CLASS1 = "";
@@ -31,7 +32,8 @@
 				STRING_TITLE = "Curso Online de HTML & CSS";
 				STRING_GOBACK = "Volver al pizarr" + String.fromCharCode(243) + "n";
 				STRING_REWIND = "Retroceder";
-				STRING_PAUSERESUME = "Pausar/Reanudar";
+				STRING_PAUSE = "Pausar";
+				STRING_RESUME = "Reanudar";
 				STRING_FORWARD = "Adelantar";
 				STRING_LOADING = "Cargando clase...";
 				STRING_CLASS1 = "Clase 1 - Introducci&oacute;n";
@@ -46,7 +48,8 @@
 				STRING_TITLE = "HTML & CSS Course";
 				STRING_GOBACK = "Go back to the board";
 				STRING_REWIND = "Rewind";
-				STRING_PAUSERESUME = "Pause/Resume";
+				STRING_PAUSE = "Pause";
+				STRING_RESUME = "Resume";
 				STRING_FORWARD = "Forward";
 				STRING_LOADING = "Loading class...";
 				STRING_CLASS1 = "Class 1 - Introduction";
@@ -75,6 +78,7 @@
 
 					// RESTORING THE DEFAULT CLASS OF THE PAUSE-RESUME BUTTON
 					document.getElementById("buttonPauseResume").className = "classroom_pause";
+					document.getElementById("buttonPauseResume").title = STRING_PAUSE;
 
 					setTimeout(function()
 						{
@@ -153,18 +157,20 @@
 					{
 					if (document.getElementById("buttonPauseResume").className=="classroom_pause")
 						{
-						document.getElementById("classroom_container").contentWindow.audio.pause();
+						document.getElementById("classroom_container").contentWindow.classroom_audio.pause();
 						document.getElementById("buttonPauseResume").className = "classroom_play";
+						document.getElementById("buttonPauseResume").title = STRING_RESUME;
 						}
 					else if (document.getElementById("buttonPauseResume").className=="classroom_play")
 						{
-						document.getElementById("classroom_container").contentWindow.audio.play();
+						document.getElementById("classroom_container").contentWindow.classroom_audio.play();
 						document.getElementById("buttonPauseResume").className = "classroom_pause";
+						document.getElementById("buttonPauseResume").title = STRING_PAUSE;
 						}
 					}
 					catch(err)
 					{
-					alert(err);
+					console.log(err);
 					}
 				}
 
@@ -258,7 +264,7 @@
 				// SETTING THE TITLES FOR EACH BUTTON
 				document.getElementsByClassName("classroom_goback")[0].title = STRING_GOBACK;
 				document.getElementsByClassName("classroom_rewind")[0].title = STRING_REWIND;
-				document.getElementById("buttonPauseResume").title = STRING_PAUSERESUME;
+				document.getElementById("buttonPauseResume").title = STRING_PAUSE;
 				document.getElementsByClassName("classroom_forward")[0].title = STRING_FORWARD;
 				}
 		</script>
