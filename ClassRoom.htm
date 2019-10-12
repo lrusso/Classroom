@@ -9,20 +9,53 @@
 	</head>
 	<body class="classroom_body">
 		<script>
+			var userLanguage = window.navigator.userLanguage || window.navigator.language;
+
 			var CTRLS_IDLE = 0;
 
-			var STRING_TITLE = "HTML & CSS Course";
-			var STRING_GOBACK = "Go back to the board";
-			var STRING_REWIND = "Rewind";
-			var STRING_PAUSERESUME = "Pause/Resume class";
-			var STRING_FORWARD = "Forward";
-			var STRING_LOADING = "Loading class...";
-			var STRING_CLASS1 = "Class 1 - Introduction";
-			var STRING_CLASS2 = "Class 2 - HTML Objects";
-			var STRING_CLASS3 = "Class 3 - CSS Implementation";
-			var STRING_CLASS4 = "Class 4 - W3C Code Validation";
-			var STRING_CLASS5 = "Class 5 - HTML & CSS Test";
-			var STRING_TIP = "Click in any Class Title to begin";
+			var STRING_TITLE = "";
+			var STRING_GOBACK = "";
+			var STRING_REWIND = "";
+			var STRING_PAUSERESUME = "";
+			var STRING_FORWARD = "";
+			var STRING_LOADING = "";
+			var STRING_CLASS1 = "";
+			var STRING_CLASS2 = "";
+			var STRING_CLASS3 = "";
+			var STRING_CLASS4 = "";
+			var STRING_CLASS5 = "";
+			var STRING_TIP = "";
+
+			if (userLanguage.substring(0,2)=="es")
+				{
+				STRING_TITLE = "Curso Online de HTML & CSS";
+				STRING_GOBACK = "Volver al pizarr" + String.fromCharCode(243) + "n";
+				STRING_REWIND = "Retroceder";
+				STRING_PAUSERESUME = "Pausar/Reanudar clase";
+				STRING_FORWARD = "Adelantar";
+				STRING_LOADING = "Cargando clase...";
+				STRING_CLASS1 = "Clase 1 - Introducci&oacute;n";
+				STRING_CLASS2 = "Clase 2 - Objetos HTML";
+				STRING_CLASS3 = "Clase 3 - Implementando CSS";
+				STRING_CLASS4 = "Clase 4 - Validaci&oacute;n de c&oacute;digo W3C";
+				STRING_CLASS5 = "Clase 5 - Examen de HTML & CSS";
+				STRING_TIP = "Haga click en el t&iacute;tulo de una clase para comenzar";
+				}
+				else
+				{
+				STRING_TITLE = "HTML & CSS Course";
+				STRING_GOBACK = "Go back to the board";
+				STRING_REWIND = "Rewind";
+				STRING_PAUSERESUME = "Pause/Resume class";
+				STRING_FORWARD = "Forward";
+				STRING_LOADING = "Loading class...";
+				STRING_CLASS1 = "Class 1 - Introduction";
+				STRING_CLASS2 = "Class 2 - HTML Objects";
+				STRING_CLASS3 = "Class 3 - CSS Implementation";
+				STRING_CLASS4 = "Class 4 - W3C Code Validation";
+				STRING_CLASS5 = "Class 5 - HTML & CSS Test";
+				STRING_TIP = "Click in any Class Title to begin";
+				}
 
 			function loadClass(url)
 				{
