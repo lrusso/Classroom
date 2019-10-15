@@ -442,6 +442,32 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		}
 	}
 
+document.addEventListener("keydown", function(event)
+	{
+	try
+		{
+		if(event.keyCode == 37)
+			{
+			parent.audioRewind();
+			}
+		else if(event.keyCode == 39)
+			{
+			parent.audioForward();
+			}
+		else if(event.keyCode == 32)
+			{
+			parent.audioPauseResume();
+			}
+		else if(event.keyCode == 27)
+			{
+			parent.goBack();
+			}
+		}
+	catch(err)
+		{
+		}
+	});
+
 window.onload = function()
 	{
 	// WHEN THE WEB PAGE IS LOADED, THE 'LOADING CLASS' SIGN WILL BE HIDDEN
