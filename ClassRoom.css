@@ -59,7 +59,7 @@
 
 .classroom_question_container{width:100%;cursor:default;padding-bottom:10px;margin-bottom:10px}
 .classroom_question_question{font-family:Arial;font-size:13pt;line-height:2.3;color:black;text-align:left;margin-left:10px;margin-bottom:10px}
-.classroom_question_answer{clear:both;display:inline-block;min-width:100px;border-radius:10px;margin-left:10px;padding-left:15px;padding-right:15px;line-height:2.7;text-align:center;margin-right:20px;font-family:Arial;font-size:13pt;color:black;background-color:silver;border:1px solid grey;cursor:pointer}
+.classroom_question_answer{clear:both;display:inline-block;min-width:100px;border-radius:10px;margin-left:10px;padding-left:15px;padding-right:15px;line-height:2.7;text-align:center;margin-right:20px;font-family:Arial;font-size:13pt;color:black;background-color:silver;text-decoration:none;border:1px solid grey;cursor:pointer}
 .classroom_question_answer:hover{background-color:#D3D3D3}
 .classroom_question_status_correct{clear:both;display:inline-block;min-width:100px;border-radius:10px;margin-left:10px;padding-left:15px;padding-right:15px;line-height:2.7;text-align:center;margin-right:20px;font-family:Arial;font-size:13pt;color:black;color:green}
 .classroom_question_status_incorrect{clear:both;display:inline-block;min-width:100px;border-radius:10px;margin-left:10px;padding-left:15px;padding-right:15px;line-height:2.7;text-align:center;margin-right:20px;font-family:Arial;font-size:13pt;color:black;color:red}

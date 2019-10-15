@@ -216,8 +216,9 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 		classroom_question_container.appendChild(classroom_question_question);
 
 		// CREATING THE CONTAINER FOR THE ANSWER 1
-		var classroom_question_answer1 = document.createElement("div");
+		var classroom_question_answer1 = document.createElement("a");
 		classroom_question_answer1.className = "classroom_question_answer";
+		classroom_question_answer1.href = "javascript:void(0)";
 		classroom_question_answer1.innerHTML = answer1;
 
 		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER BUTTON
@@ -286,8 +287,9 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 			}
 
 		// CREATING THE CONTAINER FOR THE ANSWER 2
-		var classroom_question_answer2 = document.createElement("div");
+		var classroom_question_answer2 = document.createElement("a");
 		classroom_question_answer2.className = "classroom_question_answer";
+		classroom_question_answer2.href = "javascript:void(0)";
 		classroom_question_answer2.innerHTML = answer2;
 
 		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER BUTTON
@@ -355,8 +357,9 @@ function insertQuestion(arrayIndex, containerID, question,answer1,answer2,answer
 			}
 
 		// CREATING THE CONTAINER FOR THE ANSWER 3
-		var classroom_question_answer3 = document.createElement("div");
+		var classroom_question_answer3 = document.createElement("a");
 		classroom_question_answer3.className = "classroom_question_answer";
+		classroom_question_answer3.href = "javascript:void(0)";
 		classroom_question_answer3.innerHTML = answer3;
 
 		// SETTING WHAT WILL HAPPEN WHEN THE STUDENT CLICKS ON THE ANSWER BUTTON
