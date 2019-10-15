@@ -446,18 +446,22 @@ document.addEventListener("keydown", function(event)
 	{
 	try
 		{
+		// KEY LEFT
 		if(event.keyCode == 37)
 			{
 			parent.audioRewind();
 			}
+		// KEY RIGHT
 		else if(event.keyCode == 39)
 			{
 			parent.audioForward();
 			}
+		// KEY SPACE
 		else if(event.keyCode == 32)
 			{
 			parent.audioPauseResume();
 			}
+		// KEY ESCAPE
 		else if(event.keyCode == 27)
 			{
 			parent.goBack();
