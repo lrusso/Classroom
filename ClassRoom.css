@@ -31,7 +31,7 @@
 .classroom_board_chalk{background-color:#f2f2f2;width:50px;height:7px;border-radius:5px 1px 1px 5px;position:absolute;margin:auto;bottom:10px;right:80px}
 .classroom_board_content{position:absolute;width:760px;height:400px;margin:auto;top:25px;right:0;left:0;bottom:0}
 .classroom_board_content_title{width:100%;text-align:center;font-family:"Gloria Hallelujah";font-size:20px;padding-top:20px;padding-bottom:20px}
-.classroom_board_content_class{clear:both;float:left;text-align:left;font-size:20px;font-family:"Gloria Hallelujah";margin-left:14px;margin-bottom:10px}
+.classroom_board_content_class{clear:both;float:left;text-align:left;font-size:20px;font-family:"Gloria Hallelujah";color:white;margin-left:14px;margin-bottom:10px}
 .classroom_board_content_class:hover{text-decoration:underline;cursor:pointer}
 .classroom_board_content_tip{clear:both;width:100%;padding-top:10px;text-align:center;font-family:"Gloria Hallelujah";font-size:20px;font-style:italic}
 
