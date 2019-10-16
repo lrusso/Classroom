@@ -83,3 +83,13 @@ You can also insert a question with only two possible answers by doing this:
 ```
 ["This is a test?","Yes","No","", 1]
 ```
+
+## Accessibility
+
+This platform has the following technical specifications, in order to be compatible with screen readers:
+
+* Every link to a class is a A element.
+* Every button in a test is a A element.
+* Every image displayed during classes has a TAG property.
+
+Also, a blind user can 
