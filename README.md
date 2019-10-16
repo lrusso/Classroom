@@ -92,4 +92,9 @@ This platform has the following technical specifications, in order to be compati
 * Every button in a test is a A element.
 * Every image displayed during classes has a TAG property.
 
-Also, a blind user can 
+Also, there are some keys that can be using during the classes, in order to provide a compatible experience for the visually impaired.
+
+* Left Key: Rewind class 5 seconds
+* Right Key: Forward class 5 seconds
+* Space Key: Pause or resume class
+* Escape Key: Go back to the board
