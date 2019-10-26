@@ -10,7 +10,7 @@ https://lrusso.github.io/ClassRoom/ClassRoom.htm
 
 ## Video demo
 
-https://www.youtube.com/watch?v=Xn7eAc09GAQ
+https://www.youtube.com/watch?v=SpAUPxo1LiE
 
 ## How to create your own classroom
 
