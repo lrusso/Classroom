@@ -13,6 +13,10 @@ https://lrusso.github.io/ClassRoom/ClassRoom.htm
 
 https://www.youtube.com/watch?v=Xn7eAc09GAQ
 
+## Demo Classroom: How to create a training course in My Online Classroom
+
+https://lrusso.github.io/ClassRoom/demo/ClassRoom.htm
+
 ## How to create your own classroom
 
 In https://github.com/lrusso/ClassRoom/blob/master/ClassRoom_Class01.htm, you will see this two variables:
