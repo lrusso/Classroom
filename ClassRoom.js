@@ -15,8 +15,8 @@ try
 		// UPDATING THE AUDIO TIMER LABEL
 		updateTimer();
 
-		// CHECKING IF THE CURRENT TIME OF THE AUDIO IS LESS THAN 1
-		if (classroom_audio.currentTime<1)
+		// CHECKING IF THE CURRENT TIME OF THE AUDIO IS 0
+		if (classroom_audio.currentTime==0)
 			{
 			// HIDDING ALL THE OBJECT THAT MUST HAVE A FADE IN EFFECT
 			for (var i=0;i<classroom_resources_array.length;i++)
