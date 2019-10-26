@@ -4,7 +4,6 @@ Online Classroom developed in HTML5 and CSS3.
 
 ![alt screenshot](https://raw.githubusercontent.com/lrusso/ClassRoom/master/ClassRoom.png)
 
-
 ## Web
 
 https://lrusso.github.io/ClassRoom/ClassRoom.htm
@@ -12,10 +11,6 @@ https://lrusso.github.io/ClassRoom/ClassRoom.htm
 ## Video demo
 
 https://www.youtube.com/watch?v=Xn7eAc09GAQ
-
-## Demo Classroom: How to create a training course in My Online Classroom
-
-https://lrusso.github.io/ClassRoom/demo/ClassRoom.htm
 
 ## How to create your own classroom
 
