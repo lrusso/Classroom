@@ -25,38 +25,41 @@
 			var STRING_CLASS2 = "";
 			var STRING_CLASS3 = "";
 			var STRING_CLASS4 = "";
+			var STRING_CLASS5 = "";
 			var STRING_TIP = "";
 			var STRING_PLEASEROTATE = "";
 
 			if (userLanguage.substring(0,2)=="es")
 				{
-				STRING_TITLE = "&iquest;C&oacute;mo funciona My Online Classroom?";
+				STRING_TITLE = "Curso de HTML & CSS";
 				STRING_GOBACK = "Volver al pizarr" + String.fromCharCode(243) + "n";
 				STRING_REWIND = "Retroceder";
 				STRING_PAUSE = "Pausar";
 				STRING_RESUME = "Reanudar";
 				STRING_FORWARD = "Adelantar";
 				STRING_LOADING = "Cargando clase...";
-				STRING_CLASS1 = "Clase 1 - Estructura de la plataforma";
-				STRING_CLASS2 = "Clase 2 - Utilizando referencias de clase";
-				STRING_CLASS3 = "Clase 3 - Implementando eventos y audios";
-				STRING_CLASS4 = "Clase 4 - Habilitando m&uacute;ltiples idiomas";
+				STRING_CLASS1 = "Clase 1 - Introducci&oacute;n";
+				STRING_CLASS2 = "Clase 2 - Objetos HTML";
+				STRING_CLASS3 = "Clase 3 - Implementaci&oacute;n de CSS";
+				STRING_CLASS4 = "Clase 4 - Validaci&oacute;n del c&oacute;digo en W3C";
+				STRING_CLASS5 = "Clase 5 - Examen de HTML & CSS";
 				STRING_TIP = "Haga click en el t&iacute;tulo de una clase para comenzar";
 				STRING_PLEASEROTATE = "Por favor, rote su dispositivo.";
 				}
 				else
 				{
-				STRING_TITLE = "How does My Online Classroom work?";
+				STRING_TITLE = "HTML & CSS Course";
 				STRING_GOBACK = "Go back to the board";
 				STRING_REWIND = "Rewind";
 				STRING_PAUSE = "Pause";
 				STRING_RESUME = "Resume";
 				STRING_FORWARD = "Forward";
 				STRING_LOADING = "Loading class...";
-				STRING_CLASS1 = "Class 1 - Platform structure";
-				STRING_CLASS2 = "Class 2 - Using class references";
-				STRING_CLASS3 = "Class 3 - Implementing events and audios";
-				STRING_CLASS4 = "Class 4 - Enabling multilingual trainings";
+				STRING_CLASS1 = "Class 1 - Introduction";
+				STRING_CLASS2 = "Class 2 - HTML Objects";
+				STRING_CLASS3 = "Class 3 - CSS Implementation";
+				STRING_CLASS4 = "Class 4 - W3C Code Validation";
+				STRING_CLASS5 = "Class 5 - HTML & CSS Test";
 				STRING_TIP = "Click in any Class Title to begin";
 				STRING_PLEASEROTATE = "Please rotate your device.";
 				}
@@ -293,12 +296,11 @@
 					<div class="classroom_board"><div class="classroom_board_chalk"></div></div>
 					<div class="classroom_board_content">
 						<div class="classroom_board_content_title"><script>document.write(STRING_TITLE)</script></div>
-						<div style="float:left;width:100%;height:20px"></div>
 						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS1)</script></div></a>
-						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class02.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS2)</script></div></a>
-						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class03.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS3)</script></div></a>
-						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class04.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS4)</script></div></a>
-						<div style="float:left;width:100%;height:20px"></div>
+						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS2)</script></div></a>
+						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS3)</script></div></a>
+						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS4)</script></div></a>
+						<a href="javascript:void(0)" onclick="loadClass('ClassRoom_Class05.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS5)</script></div></a>
 						<div class="classroom_board_content_tip"><script>document.write(STRING_TIP)</script></div>
 					</div>
 				</div>
