@@ -475,7 +475,7 @@ document.addEventListener("keydown", function(event)
 		}
 	});
 
-window.onload = function()
+window.addEventListener("load", function()
 	{
 	// WHEN THE WEB PAGE IS LOADED, THE 'LOADING CLASS' SIGN WILL BE HIDDEN
 	try
@@ -513,4 +513,4 @@ window.onload = function()
 	document.addEventListener("click",parent.goBackButtonResetIncrement,false);
 	document.addEventListener("dblclick",parent.goBackButtonResetIncrement,false);
 	document.addEventListener("mousemove",parent.goBackButtonResetIncrement,false);
-	}
+	});
