@@ -18,7 +18,7 @@ try
 		// CHECKING IF THE CURRENT TIME OF THE AUDIO IS 0
 		if (classroom_audio.currentTime==0)
 			{
-			// HIDDING ALL THE OBJECT THAT MUST HAVE A FADE IN EFFECT
+			// HIDING ALL THE OBJECT THAT MUST HAVE A FADE IN EFFECT
 			for (var i=0;i<classroom_resources_array.length;i++)
 				{
 				try
@@ -64,7 +64,7 @@ try
 			// CHECKING IF AN ELEMENT WAS DISPLAYED
 			if (classroom_location_latest!=null)
 				{
-				// HIDDING ALL ELEMENTS AFTER THE LATEST LOCATION
+				// HIDING ALL ELEMENTS AFTER THE LATEST LOCATION
 				for (var j=classroom_location_latest+1;j<classroom_events_array.length;j++)
 					{
 					try
