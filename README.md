@@ -8,10 +8,6 @@ Online Classroom developed in HTML5 and CSS3.
 
 https://lrusso.github.io/ClassRoom/ClassRoom.htm
 
-## Video demo
-
-https://www.youtube.com/watch?v=SpAUPxo1LiE
-
 ## Demo classroom - How does My Online Classroom work?
 
 https://lrusso.github.io/ClassRoom/demo/ClassRoom.htm
