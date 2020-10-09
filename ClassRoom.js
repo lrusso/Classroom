@@ -1,3 +1,5 @@
+var classroom_lastCurrentTime = -1;
+
 try
 	{
 	// GETTING ALL THE OBJECTS THAT MUST HAVE A FADE IN EFFECT
@@ -64,13 +66,22 @@ try
 			// CHECKING IF AN ELEMENT WAS DISPLAYED
 			if (classroom_location_latest!=null)
 				{
-				// HIDING ALL ELEMENTS AFTER THE LATEST LOCATION
-				for (var j=classroom_location_latest+1;j<classroom_events_array.length;j++)
+				for (var i=0;i<classroom_events_array.length;i++)
 					{
 					try
 						{
-						classroom_resources_array[j].classList.add("classroom_resource_hidden");
-						classroom_resources_array[j].classList.remove("classroom_resource_animation_visible");
+						if (i>=classroom_location_latest+1)
+							{
+							// HIDING ALL ELEMENTS AFTER THE LATEST LOCATION
+							classroom_resources_array[i].classList.add("classroom_resource_hidden");
+							classroom_resources_array[i].classList.remove("classroom_resource_animation_visible");
+							}
+						else if (i<classroom_location_latest)
+							{
+							// SHOWING ALL ELEMENTS AFTER THE LATEST LOCATION
+							classroom_resources_array[i].classList.add("classroom_resource_animation_visible");
+							classroom_resources_array[i].classList.remove("classroom_resource_hidden");
+							}
 						}
 						catch(err)
 						{
@@ -112,11 +123,24 @@ function audioRewind()
 		}
 	}
 
+
 function audioForward()
 	{
 	try
 		{
 		classroom_audio.currentTime = classroom_audio.currentTime + 2
+		}
+		catch(err)
+		{
+		}
+	}
+
+function seekTo(a)
+	{
+	try
+		{
+		// UPDATING THE AUDIO CURREN TIME TO THE SELECTED TIME VALUE
+		classroom_audio.currentTime = a;
 		}
 		catch(err)
 		{
@@ -139,7 +163,21 @@ function updateTimer()
 	{
 	try
 		{
-		parent.document.getElementsByClassName("classroom_timer")[0].innerHTML = toTimeString(classroom_audio.currentTime) + "/" + toTimeString(classroom_audio.duration);
+		// UPDATING THE CURRENT TIME LABEL
+		parent.document.getElementsByClassName("classroom_currenttime")[0].innerHTML = toTimeString(classroom_audio.currentTime);
+
+		// UPDATING THE DURATION TIME LABEL
+		parent.document.getElementsByClassName("classroom_duration")[0].innerHTML = toTimeString(classroom_audio.duration);
+
+		// CHECKING IF AT LEAST ONE SECOND PASSED SINCE THE LAST SEEK UPDATE
+		if (classroom_audio.currentTime+1000>classroom_lastCurrentTime)
+			{
+			// UPDATING THE SEEK CONTROL
+			parent.updateSeekerValue(classroom_audio.currentTime);
+
+			// UPDATING THE LAST CURRENT TIME VALUE
+			classroom_lastCurrentTime = classroom_audio.currentTime;
+			}
 		}
 		catch(err)
 		{
@@ -452,12 +490,12 @@ document.addEventListener("keydown", function(event)
 		// KEY LEFT
 		if(event.keyCode == 37)
 			{
-			parent.audioRewind();
+			audioRewind();
 			}
 		// KEY RIGHT
 		else if(event.keyCode == 39)
 			{
-			parent.audioForward();
+			audioForward();
 			}
 		// KEY SPACE
 		else if(event.keyCode == 32)
@@ -489,6 +527,13 @@ window.addEventListener("load", function()
 	// WHEN THE WEB PAGE IS LOADED, THE AUDIO FILE WILL PLAY
 	try
 		{
+		// RESETTING THE LAST CURRENT TIME
+		classroom_lastCurrentTime = -1;
+
+		// SETTING THE AUDIO DURATION IN THE SEEKER
+		parent.updateSeekerMax(classroom_audio.duration);
+
+		// PLAYING THE AUDIO
 		classroom_audio.play();
 		}
 		catch(err)
