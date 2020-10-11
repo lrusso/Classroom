@@ -272,10 +272,10 @@
 				document.addEventListener("click", goBackButtonResetIncrement, false);
 				document.addEventListener("dblclick", goBackButtonResetIncrement, false);
 				document.addEventListener("mousemove", goBackButtonResetIncrement, false);
-				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmousedown",function(event){parent.goBackButtonResetIncrement();});
-				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmouseup",function(event){parent.goBackButtonResetIncrement();});
-				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchstart",function(event){parent.goBackButtonResetIncrement();});
-				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchend",function(event){parent.goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmousedown",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmouseup",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchstart",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchend",function(event){goBackButtonResetIncrement();});
 
 				// SETTING THE TITLES FOR EACH BUTTON
 				document.getElementsByClassName("classroom_goback")[0].title = STRING_GOBACK;
