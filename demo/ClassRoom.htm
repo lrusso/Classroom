@@ -263,11 +263,17 @@
 					document.getElementById("classroom_container").focus();
 					}, 250);
 
-				// TO KEEP TRACK OF THE CLICKS WHEN HAVING A CLASS IN ORDER TO HIDE THE GOBACK BUTTON
+				// KEEPING TRACK OF MOUSE CLICKS AND MOVEMENTS WHEN HAVING A CLASS IN ORDER TO KNOW WHEN TO HIDE/SHOW ALL THE ICONS
 				setInterval(goBackButtonTimerIncrement, 1000);
+
+				// SETTING FUNCTIONS THAT WILL BE CALLED WHEN THE USER CLICKS, DOUBLE CLICKS OR MOVES THE MOUSE IN ORDER TO SHOW THE SYSTEM ICONS
 				document.addEventListener("click", goBackButtonResetIncrement, false);
 				document.addEventListener("dblclick", goBackButtonResetIncrement, false);
 				document.addEventListener("mousemove", goBackButtonResetIncrement, false);
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmousedown",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmouseup",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchstart",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchend",function(event){goBackButtonResetIncrement();});
 
 				// SETTING THE TITLES FOR EACH BUTTON
 				document.getElementsByClassName("classroom_goback")[0].title = STRING_GOBACK;
