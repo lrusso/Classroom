@@ -19,6 +19,12 @@
 	</head>
 	<body class="classroom_body">
 		<script>
+
+			// DO NOT MODIFY
+			var myJSON = null;
+			var finalAudioContext = null;
+			var currentSlideAudio = null;
+
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
 			var CTRLS_IDLE = 0;
@@ -126,6 +132,9 @@
 					// SHOWS THE GUI
 					document.getElementsByClassName("classroom_gui")[0].style.display = "block";
 
+					// PAUSING THE AUDIO
+					try{currentSlideAudio.pause();}catch{err}
+
 					// CLEARS THE CONTAINER FROM ANY CLASS IN PROGRESS
 					document.getElementById("classroom_container").contentDocument.location.replace("about:blank");
 
@@ -158,13 +167,13 @@
 					{
 					if (document.getElementById("buttonPauseResume").className=="classroom_pause")
 						{
-						document.getElementById("classroom_container").contentWindow.classroom_audio.pause();
+						currentSlideAudio.pause();
 						document.getElementById("buttonPauseResume").className = "classroom_play";
 						document.getElementById("buttonPauseResume").title = STRING_RESUME;
 						}
 					else if (document.getElementById("buttonPauseResume").className=="classroom_play")
 						{
-						document.getElementById("classroom_container").contentWindow.classroom_audio.play();
+						currentSlideAudio.play();
 						document.getElementById("buttonPauseResume").className = "classroom_pause";
 						document.getElementById("buttonPauseResume").title = STRING_PAUSE;
 						}
@@ -248,6 +257,14 @@
 					{
 					}
 				}
+
+			// WORKAROUND FOR ENABLING AUDIO IN SAFARI
+
+			window.AudioContext = window.AudioContext || window.webkitAudioContext;
+			function fixAudioContext(e){if(finalAudioContext==null){finalAudioContext=new AudioContext();finalAudioContext.resume();try{currentSlideAudio = new Audio();}catch(err){}}}
+			document.addEventListener("click",fixAudioContext);
+			document.addEventListener("touchstart",fixAudioContext);
+
 
 			window.oncontextmenu = function()
 				{

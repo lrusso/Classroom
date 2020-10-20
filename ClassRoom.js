@@ -1,4 +1,5 @@
 var classroom_lastCurrentTime = -1;
+var classroom_audioSeekMaxUpdate = false;
 
 try
 	{
@@ -8,17 +9,20 @@ try
 	// REVERSING THE TIME EVENT ARRAY
 	var classroom_events_array = classroom_events.reverse();
 
+	// SETTING THAT THE MAX AUDIO SEEK CONTROL WASN'T UPDATED YET
+	classroom_audioSeekMaxUpdate = false;
+
 	// CREATING THE AUDIO ELEMENT THAT WILL BE PLAYING THE MP3 FILE DURING THE CLASS
-	var classroom_audio = new Audio(classroom_audio_path);
+	parent.currentSlideAudio.src =classroom_audio_path;
 
 	// SETTING WHAT WILL HAPPEN WHEN WHILE THE AUDIO IS PLAYING
-	classroom_audio.addEventListener("timeupdate",function()
+	parent.currentSlideAudio.addEventListener("timeupdate",function()
 		{
 		// UPDATING THE AUDIO TIMER LABEL
 		updateTimer();
 
 		// CHECKING IF THE CURRENT TIME OF THE AUDIO IS 0
-		if (classroom_audio.currentTime==0)
+		if (parent.currentSlideAudio.currentTime==0)
 			{
 			// HIDING ALL THE OBJECT THAT MUST HAVE A FADE IN EFFECT
 			for (var i=0;i<classroom_resources_array.length;i++)
@@ -42,7 +46,7 @@ try
 			for (var i=0;i<classroom_events_array.length;i++)
 				{
 				// CHECKING IF THE CURRENT TIME OF THE AUDIO IS GREATER THAN THE TIME OF AN SPECIFIC FADE IN EVENT
-				if (classroom_audio.currentTime>classroom_events_array[i])
+				if (parent.currentSlideAudio.currentTime>classroom_events_array[i])
 					{
 					// CHECKING IF THE VARIABLE FOR THE LAST ELEMENT WAS USED
 					if (classroom_location_latest==null)
@@ -116,7 +120,7 @@ function audioRewind()
 	{
 	try
 		{
-		classroom_audio.currentTime = classroom_audio.currentTime - 2;
+		parent.currentSlideAudio.currentTime = parent.currentSlideAudio.currentTime - 2;
 		}
 		catch(err)
 		{
@@ -128,7 +132,7 @@ function audioForward()
 	{
 	try
 		{
-		classroom_audio.currentTime = classroom_audio.currentTime + 2
+		parent.currentSlideAudio.currentTime = parent.currentSlideAudio.currentTime + 2
 		}
 		catch(err)
 		{
@@ -140,7 +144,7 @@ function seekTo(a)
 	try
 		{
 		// UPDATING THE AUDIO CURREN TIME TO THE SELECTED TIME VALUE
-		classroom_audio.currentTime = a;
+		parent.currentSlideAudio.currentTime = a;
 		}
 		catch(err)
 		{
@@ -164,19 +168,33 @@ function updateTimer()
 	try
 		{
 		// UPDATING THE CURRENT TIME LABEL
-		parent.document.getElementsByClassName("classroom_currenttime")[0].innerHTML = toTimeString(classroom_audio.currentTime);
+		parent.document.getElementsByClassName("classroom_currenttime")[0].innerHTML = toTimeString(parent.currentSlideAudio.currentTime);
 
 		// UPDATING THE DURATION TIME LABEL
-		parent.document.getElementsByClassName("classroom_duration")[0].innerHTML = toTimeString(classroom_audio.duration);
+		parent.document.getElementsByClassName("classroom_duration")[0].innerHTML = toTimeString(parent.currentSlideAudio.duration);
+
+		// CHECKING IF THE MAX AUDIO SEEK CONTROL WASN'T UPDATED YET
+		if (classroom_audioSeekMaxUpdate==false)
+			{
+			// CHECKING IF THE AUDIO HAS A DURATION VALUE
+			if (Number.isNaN(parent.currentSlideAudio.duration)==false)
+				{
+				// SETTING THE AUDIO DURATION IN THE SEEKER
+				parent.updateSeekerMax(parent.currentSlideAudio.duration);
+
+				// SETTING THAT THE MAX AUDIO SEEK CONTROL WAS UPDATED
+				classroom_audioSeekMaxUpdate = true;
+				}
+			}
 
 		// CHECKING IF AT LEAST ONE SECOND PASSED SINCE THE LAST SEEK UPDATE
-		if (classroom_audio.currentTime+1000>classroom_lastCurrentTime)
+		if (parent.currentSlideAudio.currentTime+1000>classroom_lastCurrentTime)
 			{
 			// UPDATING THE SEEK CONTROL
-			parent.updateSeekerValue(classroom_audio.currentTime);
+			parent.updateSeekerValue(parent.currentSlideAudio.currentTime);
 
 			// UPDATING THE LAST CURRENT TIME VALUE
-			classroom_lastCurrentTime = classroom_audio.currentTime;
+			classroom_lastCurrentTime = parent.currentSlideAudio.currentTime;
 			}
 		}
 		catch(err)
@@ -530,20 +548,18 @@ window.addEventListener("load", function()
 		// RESETTING THE LAST CURRENT TIME
 		classroom_lastCurrentTime = -1;
 
-		// SETTING THE AUDIO DURATION IN THE SEEKER
-		parent.updateSeekerMax(classroom_audio.duration);
-
 		// PLAYING THE AUDIO
-		classroom_audio.play();
+		parent.currentSlideAudio.play();
 		}
 		catch(err)
 		{
+		console.log(err)
 		}
 
 	// WHEN THE AUDIO FILE ENDS, THE USER WILL BE REDIRECTED TO THE BOARD
 	try
 		{
-		classroom_audio.onended = function()
+		parent.currentSlideAudio.onended = function()
 			{
 			setTimeout(function()
 				{
