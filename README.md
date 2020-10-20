@@ -16,7 +16,7 @@ https://lrusso.github.io/ClassRoom/demo/ClassRoom.htm
 
 In https://github.com/lrusso/ClassRoom/blob/master/ClassRoom_Class01.htm, you will see this two variables:
 
-```
+```javascript
 var classroom_events = [1,7,17,24,28];
 var classroom_audio_path = "ClassRoom_Class01.mp3";
 ```
@@ -29,7 +29,7 @@ var classroom_audio_path = "ClassRoom_Class01.mp3";
 
 ## Handling transitions in your classroom
 
-```
+```html
 <table>
      <tr>
           <td colspan="2"><span class="classroom_resource classroom_resource_hidden">Introduction</span></td>
@@ -52,7 +52,7 @@ Every object that has the class **classroom_resource_hidden** will be hidden by 
 
 In https://github.com/lrusso/ClassRoom/blob/master/ClassRoom_Class05.htm, you will see this four variables for text values that are going to used by the platform:
 
-```
+```javascript
 var classroom_questions_correct = "CORRECT";
 var classroom_questions_incorrect = "INCORRECT";
 var classroom_questions_result_text = "YOUR TEST RESULT IS:";
@@ -61,7 +61,7 @@ var classroom_questions_result_pointsof = "POINTS OF";
 
 You will also see this array, that will contains all the questions and possible answers.
 
-```
+```javascript
 var classroom_questions_array = [
 				["Question 1 - This is a Test?","Yes","No","Maybe",1],
 				["Question 2 - How many available answers do you have now?","1","2","",2],
@@ -71,7 +71,7 @@ var classroom_questions_array = [
 
 This is an example of a question:
  
-```
+```javascript
 ["This is my question?","Possible Answer 1","Possible Answer 2","Possible Answer 3", 2]
 ```
 
@@ -79,7 +79,7 @@ The last value that you see in this example, is a 2, and that means that the cor
 
 You can also insert a question with only two possible answers by doing this:
 
-```
+```javascript
 ["This is a test?","Yes","No","", 1]
 ```
 
