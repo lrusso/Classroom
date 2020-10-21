@@ -8,10 +8,6 @@ Online Classroom developed in HTML5 and CSS3.
 
 https://lrusso.github.io/ClassRoom/ClassRoom.htm
 
-## Demo classroom - How does My Online Classroom work?
-
-https://lrusso.github.io/ClassRoom/demo/ClassRoom.htm
-
 ## How to create your own classroom
 
 In https://github.com/lrusso/ClassRoom/blob/master/ClassRoom_Class01.htm, you will see this two variables:
