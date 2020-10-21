@@ -1,6 +1,6 @@
 # My Online Classroom
 
-Online Classroom developed in HTML5 and CSS3.
+Classroom developed in JavaScript.
 
 ![alt screenshot](https://raw.githubusercontent.com/lrusso/ClassRoom/master/ClassRoom.png)
 
