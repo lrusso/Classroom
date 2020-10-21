@@ -14,7 +14,7 @@ In https://github.com/lrusso/Classroom/blob/master/ClassroomClass01.htm, you wil
 
 ```javascript
 var classroom_events = [1,7,17,24,28];
-var classroom_audio_path = "ClassRoom_Class01.mp3";
+var classroom_audio_path = "ClassRoomClass01.mp3";
 ```
 
 * The **classroom_events** variable is an array that sets how many seconds must pass for the next transition.
