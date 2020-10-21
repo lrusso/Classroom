@@ -13,7 +13,7 @@ try
 	classroom_audioSeekMaxUpdate = false;
 
 	// CREATING THE AUDIO ELEMENT THAT WILL BE PLAYING THE MP3 FILE DURING THE CLASS
-	parent.currentSlideAudio.src =classroom_audio_path;
+	parent.currentSlideAudio.src = classroom_audio_path;
 
 	// SETTING WHAT WILL HAPPEN WHEN WHILE THE AUDIO IS PLAYING
 	parent.currentSlideAudio.addEventListener("timeupdate",function()
@@ -548,8 +548,12 @@ window.addEventListener("load", function()
 		// RESETTING THE LAST CURRENT TIME
 		classroom_lastCurrentTime = -1;
 
-		// PLAYING THE AUDIO
-		parent.currentSlideAudio.play();
+		// CHECKING IF AN AUDIO FILE MUST BE PLAYED
+		if (classroom_audio_path !== undefined)
+			{
+			// PLAYING THE AUDIO
+			parent.currentSlideAudio.play();
+			}
 		}
 		catch(err)
 		{

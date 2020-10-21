@@ -16,40 +16,16 @@
 		<script>
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
-			var STRING_TITLE = "";
-
-			var classroom_questions_correct = "";
-			var classroom_questions_incorrect = "";
-			var classroom_questions_result_text = "";
-			var classroom_questions_result_pointsof = "";
-			var classroom_questions_array;
-
-			if (userLanguage.substring(0,2)=="es")
-				{
-				STRING_TITLE = "Demo de Examen";
-				classroom_questions_correct = "CORRECTO";
-				classroom_questions_incorrect = "INCORRECTO";
-				classroom_questions_result_text = "SU PUNTAJE ES:";
-				classroom_questions_result_pointsof = "PUNTOS DE";
-				classroom_questions_array = [
-						["Pregunta 1 - &iquest;Esto es una prueba?","S&iacute;","No","Tal vez",1],
-						["Pregunta 2 - &iquest;Cuantas respuestas disponibles tienes ahora?","1","2","",2],
-						["Pregunta 3 - &iquest;Este <b><u><i>texto con formato</i></u></b> fue dise&ntilde;ado e insertado utilizando cu&aacute;les de estas tecnolog&iacute;as?","HTML y CSS","HTML, CSS y JavaScript","PHP y MySQL",2],
-					];
-				}
-				else
-				{
-				STRING_TITLE = "Demo Test";
-				classroom_questions_correct = "CORRECT";
-				classroom_questions_incorrect = "INCORRECT";
-				classroom_questions_result_text = "YOUR TEST RESULT IS:";
-				classroom_questions_result_pointsof = "POINTS OF";
-				classroom_questions_array = [
+			var STRING_TITLE = "Demo Test";
+			var classroom_questions_correct = "CORRECT";
+			var classroom_questions_incorrect = "INCORRECT";
+			var classroom_questions_result_text = "YOUR TEST RESULT IS:";
+			var classroom_questions_result_pointsof = "POINTS OF";
+			var classroom_questions_array = [
 						["Question 1 - This is a Test?","Yes","No","Maybe",1],
 						["Question 2 - How many available answers do you have now?","1","2","",2],
 						["Question 3 - This <b><u><i>formatted text</i></u></b> was designed and inserted by using which technologies?","HTML and CSS","HTML, CSS and JavaScript","PHP & MySQL",2],
 					];
-				}
 		</script>
 		<table>
 			<tr>
