@@ -2,15 +2,15 @@
 
 Classroom developed in JavaScript.
 
-![alt screenshot](https://raw.githubusercontent.com/lrusso/ClassRoom/master/ClassRoom.png)
+![alt screenshot](https://raw.githubusercontent.com/lrusso/Classroom/master/Classroom.png)
 
 ## Web
 
-https://lrusso.github.io/ClassRoom/ClassRoom.htm
+https://lrusso.github.io/Classroom/Classroom.htm
 
 ## How to create your own classroom
 
-In https://github.com/lrusso/ClassRoom/blob/master/ClassRoomClass01.htm, you will see this two variables:
+In https://github.com/lrusso/Classroom/blob/master/ClassroomClass01.htm, you will see this two variables:
 
 ```javascript
 var classroom_events = [1,7,17,24,28];
@@ -46,7 +46,7 @@ Every object that has the class **classroom_resource_hidden** will be hidden by 
 
 ## Creating a test for your classroom
 
-In https://github.com/lrusso/ClassRoom/blob/master/ClassRoomClass05.htm, you will see this four variables for text values that are going to used by the platform:
+In https://github.com/lrusso/Classroom/blob/master/ClassroomClass05.htm, you will see this four variables for text values that are going to used by the platform:
 
 ```javascript
 var classroom_questions_correct = "CORRECT";
