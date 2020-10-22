@@ -578,4 +578,5 @@ window.addEventListener("load", function()
 	document.addEventListener("click",parent.goBackButtonResetIncrement,false);
 	document.addEventListener("dblclick",parent.goBackButtonResetIncrement,false);
 	document.addEventListener("mousemove",parent.goBackButtonResetIncrement,false);
+	document.addEventListener("touchstart",parent.goBackButtonResetIncrement,false);
 	});
