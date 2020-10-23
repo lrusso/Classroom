@@ -67,3 +67,7 @@
 @keyframes classroom_question_fadein_effect{from{opacity:0}to{opacity:1}}
 
 .classroom_result_label{font-family:Arial;font-size:17pt;line-height:2.7;margin-left:10px;color:#3a76b1}
+
+.aboutcontainer{position:fixed;left:50%;transform:translateX(-50%);white-space:nowrap;bottom:0;z-index:399;cursor:default;margin-bottom:20px;padding:10px;border-radius:10px;text-shadow: 0 0 3px #000000,0 0 7px #000000;font-family:Arial;font-size:25px;font-weight:bold;color:white;background-color:rgba(0,0,0,0.5);display:none}
+.abouthidden{animation:fadeOut 1.5s;animation-fill-mode:forwards}
+@keyframes fadeOut{0%{opacity:1}99%{opacity:0.01}100%{opacity:0}}

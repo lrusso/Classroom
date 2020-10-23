@@ -28,6 +28,7 @@
 			var STRING_CLASS4 = "Class 4 - W3C Code Validation";
 			var STRING_CLASS5 = "Class 5 - HTML & CSS Test";
 			var STRING_TIP = "Click in any Class Title to begin";
+			var STRING_ABOUT = "Designed by LRusso.com";
 
 			function loadClass(url)
 				{
@@ -38,6 +39,9 @@
 
 					// HIDES THE GUI
 					document.getElementsByClassName("classroom_gui")[0].style.display = "none";
+
+					// HIDING THE ABOUT BOX
+					document.getElementById("about").style.display = "none";
 
 					// SHOWING THE PLEASE WAIT ANIMATION
 					document.getElementsByClassName("classroom_pleasewait")[0].style.display = "block";
@@ -249,6 +253,24 @@
 				// SETTING THE TITLES FOR EACH BUTTON
 				document.getElementsByClassName("classroom_goback")[0].title = STRING_GOBACK;
 				document.getElementById("buttonPauseResume").title = STRING_PAUSE;
+
+				// UPDATING THE ABOUT BOX TEXT
+				document.getElementById("about").innerHTML = STRING_ABOUT;
+
+				// SHOWING THE ABOUT BOX
+				document.getElementById("about").style.display = "block";
+
+				// FADING OUT THE ABOUT BOX
+				setTimeout(function()
+					{
+					document.getElementById("about").className = "aboutcontainer abouthidden";
+					}, 3000);
+
+				// HIDING THE ABOUT BOX
+				setTimeout(function()
+					{
+					document.getElementById("about").style.display = "none";
+					}, 4500);
 				});
 		</script>
 
@@ -274,5 +296,7 @@
 				<div class="classroom_board_content_tip"><script>document.write(STRING_TIP)</script></div>
 			</div>
 		</div>
+
+		<div class="aboutcontainer" id="about"></div>
 	</body>
 </html>
