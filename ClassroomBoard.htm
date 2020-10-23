@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="classroom_html" lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Classroom</title>
+		<link rel="stylesheet" href="Classroom.css">
+	</head>
+	<body class="classroom_body">
+		<script>
+
+			// DO NOT MODIFY
+			var myJSON = null;
+			var finalAudioContext = null;
+			var currentSlideAudio = null;
+
+			var userLanguage = window.navigator.userLanguage || window.navigator.language;
+
+			var CTRLS_IDLE = 0;
+
+			var STRING_TITLE = "HTML & CSS Course";
+			var STRING_GOBACK = "Go back to the board";
+			var STRING_PAUSE = "Pause";
+			var STRING_RESUME = "Resume";
+			var STRING_LOADING = "Loading class...";
+			var STRING_CLASS1 = "Class 1 - Introduction";
+			var STRING_CLASS2 = "Class 2 - HTML Objects";
+			var STRING_CLASS3 = "Class 3 - CSS Implementation";
+			var STRING_CLASS4 = "Class 4 - W3C Code Validation";
+			var STRING_CLASS5 = "Class 5 - HTML & CSS Test";
+			var STRING_TIP = "Click in any Class Title to begin";
+
+			function loadClass(url)
+				{
+				try
+					{
+					// CLEARING THE CONTAINER FROM ANY CLASS IN PROGRESS
+					document.getElementById("classroom_container").contentDocument.location.replace("about:blank");
+
+					// HIDES THE GUI
+					document.getElementsByClassName("classroom_gui")[0].style.display = "none";
+
+					// SHOWING THE PLEASE WAIT ANIMATION
+					document.getElementsByClassName("classroom_pleasewait")[0].style.display = "block";
+
+					// CLEARING THE CURRENT TIME AND DURATION VALUES
+					document.getElementsByClassName("classroom_currenttime")[0].innerHTML = "";
+					document.getElementsByClassName("classroom_duration")[0].innerHTML = "";
+
+					// RESTORING THE DEFAULT CLASS OF THE PAUSE-RESUME BUTTON
+					document.getElementById("buttonPauseResume").className = "classroom_pause";
+					document.getElementById("buttonPauseResume").title = STRING_PAUSE;
+
+					setTimeout(function()
+						{
+						// MAKING THE BACKGROUND WHITE IN ORDER TO PREVENT A VISUAL BUG IF A LAZY LOAD EVENT TAKES PLACE
+						document.body.style.backgroundColor = "white";
+
+						// DISPLAYING THE CLASS CONTAINER
+						document.getElementById("classroom_container").style.display = "block";
+						document.getElementById("classroom_container").focus();
+
+						// LOADING THE CLASS
+						document.getElementById("classroom_container").contentDocument.location.replace(url);
+						}, 1500);
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function hidePleaseWait()
+				{
+				// HIDING THE PLEASE WAIT ANIMATION
+				document.getElementsByClassName("classroom_pleasewait")[0].style.display = "none";
+				}
+
+			function goBack()
+				{
+				try
+					{
+					// RESTORING THE ORIGINAL BACKGROUND COLOR
+					document.body.style.backgroundColor = "#275077";
+
+					// SHOWS THE GUI
+					document.getElementsByClassName("classroom_gui")[0].style.display = "block";
+
+					// PAUSING THE AUDIO
+					try{currentSlideAudio.pause();}catch{err}
+
+					// CLEARS THE CONTAINER FROM ANY CLASS IN PROGRESS
+					document.getElementById("classroom_container").contentDocument.location.replace("about:blank");
+
+					// HIDES THE CONTAINER
+					document.getElementById("classroom_container").style.display = "none";
+
+					// HIDES THE GO BACK BUTTON
+					document.getElementsByClassName("classroom_goback")[0].style.display = "none";
+
+					// HIDES THE RELOAD BUTTON
+					document.getElementById("buttonPauseResume").style.display = "none";
+
+					// HIDES THE CURRENT TIME
+					document.getElementsByClassName("classroom_currenttime")[0].style.display = "none";
+
+					// HIDES THE DURATION TIME
+					document.getElementsByClassName("classroom_duration")[0].style.display = "none";
+
+					// HIDES THE SEEKER
+					document.getElementsByClassName("classroom_seeker")[0].style.display = "none";
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function audioPauseResume()
+				{
+				try
+					{
+					if (document.getElementById("buttonPauseResume").className=="classroom_pause")
+						{
+						currentSlideAudio.pause();
+						document.getElementById("buttonPauseResume").className = "classroom_play";
+						document.getElementById("buttonPauseResume").title = STRING_RESUME;
+						}
+					else if (document.getElementById("buttonPauseResume").className=="classroom_play")
+						{
+						currentSlideAudio.play();
+						document.getElementById("buttonPauseResume").className = "classroom_pause";
+						document.getElementById("buttonPauseResume").title = STRING_PAUSE;
+						}
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function updateSeekerMax(a)
+				{
+				document.getElementsByClassName("classroom_seeker_control")[0].max = a;
+				}
+
+			function updateSeekerValue(a)
+				{
+				document.getElementsByClassName("classroom_seeker_control")[0].value = a;
+				}
+
+			function seekTo()
+				{
+				document.getElementById("classroom_container").contentWindow.seekTo(document.getElementsByClassName("classroom_seeker_control")[0].value);
+				}
+
+			function goBackButtonResetIncrement()
+				{
+				try
+					{
+					CTRLS_IDLE = 0;
+					if (document.getElementById("classroom_container").style.display=="block")
+						{
+						// SHOWS THE GO BACK BUTTON
+						document.getElementsByClassName("classroom_goback")[0].style.display = "block";
+
+						// CHECKING IF THERE IS AN AUDIO OBJECT IN THE CONTAINER
+						if (document.getElementById("classroom_container").contentWindow.classroom_audio_path)
+							{
+							// SHOWS THE RELOAD BUTTON
+							document.getElementById("buttonPauseResume").style.display = "block";
+
+							// SHOWS THE CURRENT TIME
+							document.getElementsByClassName("classroom_currenttime")[0].style.display = "block";
+
+							// SHOWS THE DURATION TIME
+							document.getElementsByClassName("classroom_duration")[0].style.display = "block";
+
+							// SHOWS THE SEEKER
+							document.getElementsByClassName("classroom_seeker")[0].style.display = "block";
+							}
+						}
+					}
+					catch(err)
+					{
+					}
+				}
+
+			function goBackButtonTimerIncrement()
+				{
+				try
+					{
+					CTRLS_IDLE = CTRLS_IDLE + 1;
+					if (CTRLS_IDLE >= 3)
+						{
+						// HIDES THE GO BACK BUTTON
+						document.getElementsByClassName("classroom_goback")[0].style.display = "none";
+
+						// HIDES THE RELOAD BUTTON
+						document.getElementById("buttonPauseResume").style.display = "none";
+
+						// HIDES THE CURRENT TIME
+						document.getElementsByClassName("classroom_currenttime")[0].style.display = "none";
+
+						// HIDES THE DURATION TIME
+						document.getElementsByClassName("classroom_duration")[0].style.display = "none";
+
+						// HIDES THE SEEKER
+						document.getElementsByClassName("classroom_seeker")[0].style.display = "none";
+						}
+					}
+					catch(err)
+					{
+					}
+				}
+
+			// WORKAROUND FOR ENABLING AUDIO IN SAFARI
+
+			window.AudioContext = window.AudioContext || window.webkitAudioContext;
+			function fixAudioContext(e){if(finalAudioContext==null){finalAudioContext=new AudioContext();finalAudioContext.resume();try{currentSlideAudio = new Audio();}catch(err){}}}
+			document.addEventListener("click",fixAudioContext);
+			document.addEventListener("touchstart",fixAudioContext);
+
+
+			window.oncontextmenu = function()
+				{
+				// DISABLING THE CONTEXT MENU
+				return false;
+				}
+
+			window.addEventListener("load", function()
+				{
+				document.getElementById("classroom_container").contentDocument.location.replace("about:blank");
+
+				// TO KEEP FOCUS IN THE CONTAINER
+				setInterval(function()
+					{
+					document.getElementById("classroom_container").focus();
+					}, 250);
+
+				// KEEPING TRACK OF MOUSE CLICKS AND MOVEMENTS WHEN HAVING A CLASS IN ORDER TO KNOW WHEN TO HIDE/SHOW ALL THE ICONS
+				setInterval(goBackButtonTimerIncrement, 1000);
+
+				// SETTING FUNCTIONS THAT WILL BE CALLED WHEN THE USER CLICKS, DOUBLE CLICKS OR MOVES THE MOUSE IN ORDER TO SHOW THE SYSTEM ICONS
+				document.addEventListener("click", goBackButtonResetIncrement, false);
+				document.addEventListener("dblclick", goBackButtonResetIncrement, false);
+				document.addEventListener("mousemove", goBackButtonResetIncrement, false);
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmousedown",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("onmouseup",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchstart",function(event){goBackButtonResetIncrement();});
+				document.getElementsByClassName("classroom_seeker")[0].addEventListener("touchend",function(event){goBackButtonResetIncrement();});
+
+				// SETTING THE TITLES FOR EACH BUTTON
+				document.getElementsByClassName("classroom_goback")[0].title = STRING_GOBACK;
+				document.getElementById("buttonPauseResume").title = STRING_PAUSE;
+				});
+		</script>
+
+		<iframe id="classroom_container" src="about:blank"></iframe>
+		<div class="classroom_goback" onclick="goBack()"></div>
+		<div class="classroom_pause" onclick="audioPauseResume()" id="buttonPauseResume"></div>
+		<div class="classroom_currenttime"></div>
+		<div class="classroom_duration"></div>
+		<div class="classroom_seeker">
+			<input class="classroom_seeker_control" type="range" name="rng" min="0" step="0.25" value="0" onchange="seekTo()"/>
+		</div>
+
+		<div class="classroom_pleasewait"><div class="classroom_pleasewait_title"><script>document.write(STRING_LOADING);</script></div><div class="classroom_spinner"><div class="classroom_spinner_animation"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+
+		<div class="classroom_gui">
+			<div class="classroom_board">
+				<div class="classroom_board_content_title"><script>document.write(STRING_TITLE)</script></div>
+				<a href="javascript:void(0)" onclick="loadClass('ClassroomClass01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS1)</script></div></a>
+				<a href="javascript:void(0)" onclick="loadClass('ClassroomClass01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS2)</script></div></a>
+				<a href="javascript:void(0)" onclick="loadClass('ClassroomClass01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS3)</script></div></a>
+				<a href="javascript:void(0)" onclick="loadClass('ClassroomClass01.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS4)</script></div></a>
+				<a href="javascript:void(0)" onclick="loadClass('ClassroomClass05.htm')"><div class="classroom_board_content_class"><script>document.write(STRING_CLASS5)</script></div></a>
+				<div class="classroom_board_content_tip"><script>document.write(STRING_TIP)</script></div>
+			</div>
+		</div>
+	</body>
+</html>
