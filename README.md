@@ -1,4 +1,4 @@
-# My Online Classroom
+# Classroom
 
 Classroom developed in JavaScript.
 
