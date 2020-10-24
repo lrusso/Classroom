@@ -100,8 +100,14 @@
 					// HIDES THE GO BACK BUTTON
 					document.getElementsByClassName("classroom_goback")[0].style.display = "none";
 
-					// HIDES THE RELOAD BUTTON
+					// HIDES THE GO BACK BUTTON SHADOW
+					document.getElementsByClassName("classroom_goback_shadow")[0].style.display = "none";
+
+					// HIDES THE PAUSE/RESUME BUTTON
 					document.getElementById("buttonPauseResume").style.display = "none";
+
+					// HIDES THE PAUSE/RESUME BUTTON SHADOW
+					document.getElementsByClassName("classroom_pause_shadow")[0].style.display = "none";
 
 					// HIDES THE CURRENT TIME
 					document.getElementsByClassName("classroom_currenttime")[0].style.display = "none";
@@ -164,11 +170,17 @@
 						// SHOWS THE GO BACK BUTTON
 						document.getElementsByClassName("classroom_goback")[0].style.display = "block";
 
+						// SHOWS THE GO BACK BUTTON SHADOW
+						document.getElementsByClassName("classroom_goback_shadow")[0].style.display = "block";
+
 						// CHECKING IF THERE IS AN AUDIO OBJECT IN THE CONTAINER
 						if (document.getElementById("classroom_container").contentWindow.classroom_audio_path)
 							{
-							// SHOWS THE RELOAD BUTTON
+							// SHOWS THE PAUSE/RESUME BUTTON
 							document.getElementById("buttonPauseResume").style.display = "block";
+
+							// SHOWS THE PAUSE/RESUME BUTTON SHADOW
+							document.getElementsByClassName("classroom_pause_shadow")[0].style.display = "block";
 
 							// SHOWS THE CURRENT TIME
 							document.getElementsByClassName("classroom_currenttime")[0].style.display = "block";
@@ -196,8 +208,14 @@
 						// HIDES THE GO BACK BUTTON
 						document.getElementsByClassName("classroom_goback")[0].style.display = "none";
 
-						// HIDES THE RELOAD BUTTON
+						// HIDES THE GO BACK BUTTON SHADOW
+						document.getElementsByClassName("classroom_goback_shadow")[0].style.display = "none";
+
+						// HIDES THE PAUSE/RESUME BUTTON
 						document.getElementById("buttonPauseResume").style.display = "none";
+
+						// HIDES THE PAUSE/RESUME BUTTON SHADOW
+						document.getElementsByClassName("classroom_pause_shadow")[0].style.display = "none";
 
 						// HIDES THE CURRENT TIME
 						document.getElementsByClassName("classroom_currenttime")[0].style.display = "none";
@@ -276,7 +294,9 @@
 
 		<iframe id="classroom_container" src="about:blank"></iframe>
 		<div class="classroom_goback" onclick="goBack()"></div>
+		<div class="classroom_goback_shadow"></div>
 		<div class="classroom_pause" onclick="audioPauseResume()" id="buttonPauseResume"></div>
+		<div class="classroom_pause_shadow"></div>
 		<div class="classroom_currenttime"></div>
 		<div class="classroom_duration"></div>
 		<div class="classroom_seeker">
